@@ -105,6 +105,8 @@ export default {
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
         'card-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 10px -3px rgba(0, 0, 0, 0.05)',
         'login': '0 20px 60px -10px rgba(0, 0, 0, 0.10), 0 8px 20px -5px rgba(0, 0, 0, 0.06)',
+        'feature': '0 2px 8px -2px rgba(0, 74, 198, 0.08), 0 1px 3px -1px rgba(0, 0, 0, 0.04)',
+        'auth-card': '0 24px 64px -12px rgba(0, 0, 0, 0.12), 0 8px 24px -6px rgba(0, 74, 198, 0.08)',
       },
       keyframes: {
         shimmer: {

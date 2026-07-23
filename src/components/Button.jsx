@@ -2,7 +2,9 @@ import { motion } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
 
 /**
- * Reusable button with variants: primary | social | ghost
+ * Reusable button with variants: primary (gradient) | social | ghost
+ * Primary: blue gradient, h-[54px], rounded-xl, shadow, hover scale.
+ * Social: outlined white, h-[52px].
  * @param {{ variant?: 'primary'|'social'|'ghost', isLoading?: boolean, disabled?: boolean,
  *           icon?: React.ReactNode, children: React.ReactNode, className?: string,
  *           type?: string, onClick?: () => void }} props
@@ -19,19 +21,22 @@ export default function Button({
 }) {
   const isDisabled = disabled || isLoading
 
-  const base = `relative flex items-center justify-center gap-2.5 w-full h-[44px] rounded-xl
+  const base = `relative flex items-center justify-center gap-2.5 w-full rounded-xl
                 font-semibold text-sm transition-all duration-200 focus:outline-none
                 focus-visible:ring-2 focus-visible:ring-offset-2 select-none overflow-hidden
                 disabled:opacity-60 disabled:cursor-not-allowed`
 
   const variants = {
-    primary: `bg-primary text-white shadow-md shadow-primary/25
-              hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/30
+    primary: `h-[54px] bg-gradient-to-r from-blue-600 to-primary text-white
+              shadow-md shadow-primary/25
+              hover:from-blue-700 hover:to-blue-600
+              hover:shadow-lg hover:shadow-primary/35
               focus-visible:ring-primary active:scale-[0.98]`,
-    social: `bg-white text-heading border border-border
+    social: `h-[52px] bg-white text-heading border border-border
              hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm
-             focus-visible:ring-primary/40 active:scale-[0.98]`,
-    ghost: `bg-transparent text-primary hover:bg-primary-light
+             focus-visible:ring-primary/40 active:scale-[0.98]
+             dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700`,
+    ghost: `h-[44px] bg-transparent text-primary hover:bg-primary-light
             focus-visible:ring-primary/40`,
   }
 
@@ -41,13 +46,13 @@ export default function Button({
       disabled={isDisabled}
       onClick={onClick}
       className={`${base} ${variants[variant]} ${className}`}
-      whileHover={!isDisabled ? { scale: 1.01 } : {}}
+      whileHover={!isDisabled ? { scale: 1.01, y: -1 } : {}}
       whileTap={!isDisabled ? { scale: 0.98 } : {}}
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
       aria-busy={isLoading}
       aria-disabled={isDisabled}
     >
-      {/* Shimmer overlay on hover (primary only) */}
+      {/* Shimmer overlay (primary only) */}
       {variant === 'primary' && !isDisabled && (
         <span
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent

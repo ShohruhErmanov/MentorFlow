@@ -17,7 +17,7 @@ function App() {
         }
       >
         <Routes>
-          <Route path="/" element={<Navigate to="/mentor/dashboard" replace />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/dashboard" element={<Navigate to="/mentor/dashboard" replace />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />

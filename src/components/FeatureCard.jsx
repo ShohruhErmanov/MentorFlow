@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 
 /**
- * Compact feature card — 72px height, 20px border-radius, hover lift.
+ * Compact feature card — 72px min-height, 20px border-radius, hover lift.
+ * Uses only defined Tailwind utility classes — no custom shadow-feature dependency.
  * @param {{ icon: string, title: string, description?: string, delay?: number }} props
  */
 export default function FeatureCard({ icon, title, description, delay = 0 }) {
   return (
     <motion.div
-      className="flex items-center gap-3 bg-white rounded-xl2 border border-border shadow-feature
-                 px-4 py-2.5 cursor-default select-none min-h-[64px]"
+      className="flex items-center gap-3 bg-white border border-border
+                 px-4 py-3 cursor-default select-none min-h-[72px]"
+      style={{ borderRadius: '20px', boxShadow: '0 2px 8px -2px rgba(0,74,198,0.08), 0 1px 3px -1px rgba(0,0,0,0.04)' }}
       initial={{ opacity: 0, x: -16 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.45, delay, ease: 'easeOut' }}
@@ -21,9 +23,11 @@ export default function FeatureCard({ icon, title, description, delay = 0 }) {
       role="listitem"
       aria-label={title}
     >
-      {/* Icon badge */}
-      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-primary-light to-blue-100
-                      flex items-center justify-center">
+      {/* Icon badge — blue gradient container */}
+      <div
+        className="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-primary-light to-blue-100
+                   flex items-center justify-center"
+      >
         <span className="text-base" role="img" aria-hidden="true">{icon}</span>
       </div>
 

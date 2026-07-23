@@ -49,6 +49,8 @@ textarea {
   border-radius: 9999px;
 }
 
+/* ── Design-system utilities ── */
+
 @utility text-gradient {
   background: linear-gradient(90deg, #004ac6 0%, #3b82f6 100%);
   -webkit-background-clip: text;

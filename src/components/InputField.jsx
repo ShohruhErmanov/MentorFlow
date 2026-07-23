@@ -4,6 +4,7 @@ import { Eye, EyeOff, AlertCircle } from 'lucide-react'
 
 /**
  * Reusable accessible input field with label, icon, error state, and password toggle.
+ * Uses explicit Tailwind classes — no custom CSS dependencies.
  * @type {React.ForwardRefExoticComponent<InputFieldProps>}
  */
 const InputField = forwardRef(function InputField(
@@ -25,7 +26,7 @@ const InputField = forwardRef(function InputField(
   ref
 ) {
   const inputType = showPasswordToggle ? (showPassword ? 'text' : 'password') : type
-  const hasError = Boolean(error)
+  const hasError  = Boolean(error)
 
   return (
     <motion.div
@@ -59,8 +60,10 @@ const InputField = forwardRef(function InputField(
       <div className="relative group">
         {/* Left icon */}
         {LeftIcon && (
-          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-body group-focus-within:text-primary transition-colors duration-200"
-               aria-hidden="true">
+          <div
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-body group-focus-within:text-primary transition-colors duration-200"
+            aria-hidden="true"
+          >
             <LeftIcon size={16} strokeWidth={2} />
           </div>
         )}
@@ -76,11 +79,17 @@ const InputField = forwardRef(function InputField(
           aria-invalid={hasError}
           aria-describedby={hasError ? `${id}-error` : undefined}
           className={[
-            'input-base',
+            'w-full h-[52px] rounded-xl border bg-white text-sm text-heading',
+            'placeholder:text-gray-400 outline-none',
+            'transition-all duration-200',
+            'focus:ring-2 focus:ring-primary/20 focus:border-primary',
+            'dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500',
             LeftIcon ? 'pl-10' : 'pl-4',
             showPasswordToggle || hasError ? 'pr-10' : 'pr-4',
-            hasError ? 'input-error' : '',
-            disabled ? 'opacity-50 cursor-not-allowed' : '',
+            hasError
+              ? 'border-red-400 ring-2 ring-red-400/15 focus:border-red-400 focus:ring-red-400/20'
+              : 'border-border hover:border-slate-300 dark:border-gray-600',
+            disabled ? 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-900' : '',
           ].join(' ')}
           {...rest}
         />
@@ -96,7 +105,7 @@ const InputField = forwardRef(function InputField(
               onClick={onTogglePassword}
               className="text-body hover:text-primary transition-colors duration-150 focus:outline-none
                          focus-visible:ring-2 focus-visible:ring-primary/40 rounded p-0.5"
-              aria-label={showPassword ? 'Parolni yashirish' : 'Parolni ko\'rsatish'}
+              aria-label={showPassword ? 'Parolni yashirish' : "Parolni ko'rsatish"}
               tabIndex={0}
             >
               {showPassword
