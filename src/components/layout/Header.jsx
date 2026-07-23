@@ -1,7 +1,7 @@
 import { Bell, Menu, Settings } from 'lucide-react';
-import Avatar from '../common/Avatar';
-import Button from '../common/Button';
-import SearchInput from '../common/SearchInput';
+import Avatar from '../ui/Avatar';
+import Button from '../ui/Button';
+import SearchInput from '../ui/SearchInput';
 
 export default function Header({ onMenuClick }) {
   return (

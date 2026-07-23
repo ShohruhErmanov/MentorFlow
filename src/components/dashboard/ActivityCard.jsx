@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import Avatar from '../common/Avatar';
-import Card from '../common/Card';
+import Avatar from '../ui/Avatar';
+import Card from '../ui/Card';
 import { recentActivities } from '../../services/dashboardService';
 
 const avatarTones = {

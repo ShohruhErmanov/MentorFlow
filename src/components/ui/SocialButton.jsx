@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Button from './Button.jsx'
+import AuthButton from './AuthButton.jsx'
 
 /**
  * Social login button (Google / GitHub) wrapping the base Button component.
@@ -34,7 +34,7 @@ export default function SocialButton({ provider, onClick, disabled = false }) {
   const { label, ariaLabel, icon } = providers[provider]
 
   return (
-    <Button
+    <AuthButton
       variant="social"
       icon={icon}
       onClick={onClick}
@@ -42,6 +42,6 @@ export default function SocialButton({ provider, onClick, disabled = false }) {
       aria-label={ariaLabel}
     >
       {label}
-    </Button>
+    </AuthButton>
   )
 }

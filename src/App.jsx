@@ -5,6 +5,8 @@ import DashboardLayout from './components/layout/DashboardLayout';
 const MentorDashboard = lazy(() => import('./pages/mentor/Dashboard'));
 const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const RegisterPage = lazy(() => import('./pages/Register.jsx'));
+const GroupsPage = lazy(() => import('./pages/Groups/GroupsPage.jsx'));
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route element={<DashboardLayout />}>
             <Route path="/mentor/dashboard" element={<MentorDashboard />} />
+            <Route path="/mentor/groups" element={<GroupsPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/mentor/dashboard" replace />} />
         </Routes>

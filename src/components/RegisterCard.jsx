@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { User, Mail, Phone, Lock, Shield, CheckCircle2, ArrowRight } from 'lucide-react'
 
-import InputField      from './InputField.jsx'
-import SocialButton    from './SocialButton.jsx'
-import Checkbox        from './Checkbox.jsx'
-import Footer          from './Footer.jsx'
+import InputField       from './ui/InputField.jsx'
+import SocialButton     from './ui/SocialButton.jsx'
+import Checkbox         from './ui/Checkbox.jsx'
+import Footer           from './Footer.jsx'
 import PasswordStrength from './PasswordStrength.jsx'
 
 /**

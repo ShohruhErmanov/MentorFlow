@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Plus, UserRound, X } from 'lucide-react';
 import clsx from 'clsx';
-import Button from '../common/Button';
+import Button from '../ui/Button';
 import { navigationItems } from '../../services/dashboardService';
 
 function LogoMark() {

@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import Card from '../common/Card';
+import Card from '../ui/Card';
 import { weeklyPerformance } from '../../services/dashboardService';
 
 function TooltipContent({ active, payload, label }) {

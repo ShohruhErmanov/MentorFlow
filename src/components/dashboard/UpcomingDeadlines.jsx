@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import Badge from '../common/Badge';
-import Card from '../common/Card';
+import Badge from '../ui/Badge';
+import Card from '../ui/Card';
 import { upcomingDeadlines } from '../../services/dashboardService';
 
 const borderTones = {

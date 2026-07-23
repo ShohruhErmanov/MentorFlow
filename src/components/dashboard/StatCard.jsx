@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import clsx from 'clsx';
-import Card from '../common/Card';
+import Card from '../ui/Card';
 
 const toneStyles = {
   blue: {
