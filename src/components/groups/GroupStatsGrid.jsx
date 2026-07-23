@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Users, FileText, TrendingUp, AlertTriangle } from 'lucide-react';
 import Card from '../ui/Card';
 
-export default function GroupStatsGrid({ group }) {
+export default function GroupStatsGrid({ group, activeAssignmentsCount = 0 }) {
   if (!group) return null;
 
   const stats = [
@@ -15,7 +15,7 @@ export default function GroupStatsGrid({ group }) {
     },
     {
       label: "Faol vazifalar",
-      value: "3 ta", // Mocked for now as per requirement
+      value: `${activeAssignmentsCount} ta`,
       icon: FileText,
       color: "text-indigo-600",
       bg: "bg-indigo-100",

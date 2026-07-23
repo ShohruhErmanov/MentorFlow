@@ -3,7 +3,7 @@ import { ChevronRight, Edit2, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 
-export default function GroupHeader({ group }) {
+export default function GroupHeader({ group, onEditClick, onAddAssignmentClick }) {
   if (!group) return null;
 
   return (
@@ -37,11 +37,11 @@ export default function GroupHeader({ group }) {
           transition={{ duration: 0.3, delay: 0.1 }}
           className="flex items-center gap-3"
         >
-          <Button variant="ghost" className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe]">
+          <Button variant="ghost" onClick={onEditClick} className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe]">
             <Edit2 size={18} />
             <span>Tahrirlash</span>
           </Button>
-          <Button variant="primary">
+          <Button variant="primary" onClick={onAddAssignmentClick}>
             <Plus size={18} />
             <span>Vazifa qo'shish</span>
           </Button>
