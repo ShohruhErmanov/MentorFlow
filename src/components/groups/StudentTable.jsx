@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StudentRow from './StudentRow';
-import Pagination from './Pagination';
+import Pagination from '../ui/Pagination';
 import EmptyState from '../ui/EmptyState';
 import SearchToolbar from './SearchToolbar';
 

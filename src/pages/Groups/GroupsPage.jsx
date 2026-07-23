@@ -4,7 +4,7 @@ import GroupActions from '../../components/groups/GroupActions';
 import GroupFilters from '../../components/groups/GroupFilters';
 import GroupCard from '../../components/groups/GroupCard';
 import SummaryCards from '../../components/groups/SummaryCards';
-import Pagination from '../../components/groups/Pagination';
+import Pagination from '../../components/ui/Pagination';
 import EmptyState from '../../components/ui/EmptyState';
 import CreateGroupModal from '../../components/groups/CreateGroupModal';
 import EditGroupModal from '../../components/groups/EditGroupModal';

@@ -7,6 +7,8 @@ const LoginPage = lazy(() => import('./pages/Login.jsx'));
 const RegisterPage = lazy(() => import('./pages/Register.jsx'));
 const GroupsPage = lazy(() => import('./pages/Groups/GroupsPage.jsx'));
 const GroupDetails = lazy(() => import('./pages/Groups/GroupDetails.jsx'));
+const StudentsPage = lazy(() => import('./pages/Students/StudentsPage.jsx'));
+const StudentProfile = lazy(() => import('./pages/Students/StudentProfile.jsx'));
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
             <Route path="/mentor/dashboard" element={<MentorDashboard />} />
             <Route path="/mentor/groups" element={<GroupsPage />} />
             <Route path="/mentor/groups/:groupId" element={<GroupDetails />} />
+            <Route path="/mentor/students" element={<StudentsPage />} />
+            <Route path="/mentor/students/:studentId" element={<StudentProfile />} />
           </Route>
           <Route path="*" element={<Navigate to="/mentor/dashboard" replace />} />
         </Routes>
