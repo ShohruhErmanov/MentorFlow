@@ -34,7 +34,7 @@ export default function TopBar() {
           </button>
           {/* Avatar */}
           <div className="w-8 h-8 rounded-full bg-secondary-container overflow-hidden border border-outline-variant flex items-center justify-center text-on-secondary-container font-semibold text-sm">
-            M
+              <User size={22} />
           </div>
         </div>
       </div>

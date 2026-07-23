@@ -6,9 +6,9 @@ import {
 // ─── Navigation ────────────────────────────────────────────────────────────
 export const NAV_ITEMS = [
   { id: 'dashboard',   label: 'Boshqaruv paneli',      Icon: LayoutDashboard, path: '/dashboard' },
-  { id: 'groups',      label: 'Guruhlar',               Icon: Users,           path: '/guruhlar' },
-  { id: 'students',    label: "O'quvchilar",            Icon: GraduationCap,   path: '/oquvchilar' },
-  { id: 'assignments', label: 'Vazifalar',              Icon: ClipboardList,   path: '/vazifalar' },
+  { id: 'groups',      label: 'Guruhlar',               Icon: Users,           path: '/mentor/groups' },
+  { id: 'students',    label: "O'quvchilar",            Icon: GraduationCap,   path: '/mentor/students' },
+  { id: 'assignments', label: 'Vazifalar',              Icon: ClipboardList,   path: '/mentor/assignments' },
   { id: 'submissions', label: 'Topshirilgan vazifalar', Icon: Inbox,           path: '/topshirilgan' },
   { id: 'review',      label: 'Vazifani tekshirish',   Icon: ClipboardCheck,  path: '/tekshirish' },
   { id: 'attendance',  label: 'Davomat',                Icon: CalendarCheck,   path: '/davomat' },
