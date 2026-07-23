@@ -9,6 +9,9 @@ import EmptyState from '../../components/ui/EmptyState';
 import CreateGroupModal from '../../components/groups/CreateGroupModal';
 import EditGroupModal from '../../components/groups/EditGroupModal';
 import DeleteGroupDialog from '../../components/groups/DeleteGroupDialog';
+import ImportDialog from '../../components/groups/ImportDialog';
+import ExportDialog from '../../components/groups/ExportDialog';
+import Toast from '../../components/ui/Toast';
 
 export default function GroupsPage() {
   const {
@@ -32,9 +35,17 @@ export default function GroupsPage() {
     setEditingGroup,
     deletingGroup,
     setDeletingGroup,
+    isImportModalOpen,
+    setIsImportModalOpen,
+    isExportModalOpen,
+    setIsExportModalOpen,
+    toast,
+    hideToast,
     handleCreateGroup,
     handleUpdateGroup,
     handleDeleteGroup,
+    handleImport,
+    handleExport,
   } = useGroups();
 
   const totalStudents = allGroups.reduce((acc, g) => acc + g.students.count, 0);
@@ -62,6 +73,8 @@ export default function GroupsPage() {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onCreateClick={() => setIsCreateModalOpen(true)}
+          onImportClick={() => setIsImportModalOpen(true)}
+          onExportClick={() => setIsExportModalOpen(true)}
         />
         <GroupFilters
           statusFilter={statusFilter}
@@ -132,6 +145,24 @@ export default function GroupsPage() {
         onClose={() => setDeletingGroup(null)}
         onConfirm={() => handleDeleteGroup(deletingGroup.id)}
         groupName={deletingGroup?.name}
+      />
+
+      <ImportDialog
+        isOpen={isImportModalOpen}
+        onClose={() => setIsImportModalOpen(false)}
+        onImport={handleImport}
+      />
+
+      <ExportDialog
+        isOpen={isExportModalOpen}
+        onClose={() => setIsExportModalOpen(false)}
+        onExport={handleExport}
+      />
+
+      <Toast 
+        message={toast.message} 
+        isVisible={toast.isVisible} 
+        onClose={hideToast} 
       />
     </motion.div>
   );

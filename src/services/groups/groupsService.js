@@ -96,3 +96,54 @@ export const initialGroups = [
     createdAt: '2024-08-01T10:00:00Z',
   },
 ];
+
+export const mockStudents = [
+  {
+    id: '01901',
+    name: 'Aliyev Azizbek',
+    phone: '+998 90 123 45 67',
+    progress: 92,
+    attendance: 98,
+    groupId: '1',
+  },
+  {
+    id: '01902',
+    name: 'Valiyeva Malika',
+    phone: '+998 91 234 56 78',
+    progress: 85,
+    attendance: 95,
+    groupId: '1',
+  },
+  {
+    id: '01903',
+    name: 'Toshmatov Temur',
+    phone: '+998 93 345 67 89',
+    progress: 65,
+    attendance: 75,
+    groupId: '1',
+  },
+  {
+    id: '01904',
+    name: 'Saidov Sardor',
+    phone: '+998 94 456 78 90',
+    progress: 45,
+    attendance: 60,
+    groupId: '1',
+  },
+  {
+    id: '01905',
+    name: 'Karimova Nargiza',
+    phone: '+998 95 567 89 01',
+    progress: 78,
+    attendance: 88,
+    groupId: '1',
+  }
+];
+
+export const getGroupById = (id) => {
+  return initialGroups.find((g) => g.id === id) || null;
+};
+
+export const getStudentsByGroupId = (groupId) => {
+  return mockStudents.filter((s) => s.groupId === groupId);
+};

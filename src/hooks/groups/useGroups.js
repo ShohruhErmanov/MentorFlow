@@ -15,6 +15,19 @@ export function useGroups() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [editingGroup, setEditingGroup] = useState(null);
   const [deletingGroup, setDeletingGroup] = useState(null);
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+
+  // Toast state
+  const [toast, setToast] = useState({ message: '', isVisible: false });
+
+  const showToast = (message) => {
+    setToast({ message, isVisible: true });
+  };
+
+  const hideToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
+  };
 
   const filteredAndSortedGroups = useMemo(() => {
     let result = [...groups];
@@ -82,21 +95,34 @@ export function useGroups() {
       attendance: 0,
       progress: 0,
       rating: 0,
-      status: 'Faol',
+      status: data.status || 'Faol',
       createdAt: new Date().toISOString(),
     };
     setGroups([newGroup, ...groups]);
     setIsCreateModalOpen(false);
+    showToast("Yangi guruh muvaffaqiyatli yaratildi!");
   };
 
   const handleUpdateGroup = (data) => {
     setGroups(groups.map((g) => (g.id === editingGroup.id ? { ...g, ...data, students: { ...g.students, max: parseInt(data.capacity, 10) } } : g)));
     setEditingGroup(null);
+    showToast("Guruh muvaffaqiyatli tahrirlandi!");
   };
 
   const handleDeleteGroup = (id) => {
     setGroups(groups.filter((g) => g.id !== id));
     setDeletingGroup(null);
+    showToast("Guruh muvaffaqiyatli o'chirildi!");
+  };
+
+  const handleImport = (file) => {
+    setIsImportModalOpen(false);
+    showToast(`${file.name} muvaffaqiyatli import qilindi!`);
+  };
+
+  const handleExport = (format) => {
+    setIsExportModalOpen(false);
+    showToast(`Ma'lumotlar ${format.toUpperCase()} formatida yuklab olindi!`);
   };
 
   return {
@@ -120,8 +146,16 @@ export function useGroups() {
     setEditingGroup,
     deletingGroup,
     setDeletingGroup,
+    isImportModalOpen,
+    setIsImportModalOpen,
+    isExportModalOpen,
+    setIsExportModalOpen,
+    toast,
+    hideToast,
     handleCreateGroup,
     handleUpdateGroup,
     handleDeleteGroup,
+    handleImport,
+    handleExport,
   };
 }
