@@ -10,6 +10,8 @@ const GroupDetails = lazy(() => import('./pages/Groups/GroupDetails.jsx'));
 const StudentsPage = lazy(() => import('./pages/Students/StudentsPage.jsx'));
 const StudentProfile = lazy(() => import('./pages/Students/StudentProfile.jsx'));
 const AssignmentsPage = lazy(() => import('./pages/AssignmentsPage.jsx'));
+const SubmittedAssignmentsPage = lazy(() => import('./pages/SubmittedAssignmentsPage.jsx'));
+const AssignmentReviewPage = lazy(() => import('./pages/AssignmentReviewPage.jsx'));
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/mentor/students" element={<StudentsPage />} />
             <Route path="/mentor/students/:studentId" element={<StudentProfile />} />
             <Route path="/mentor/assignments" element={<AssignmentsPage />} />
+            <Route path="/mentor/submitted-assignments" element={<SubmittedAssignmentsPage />} />
+            <Route path="/mentor/submitted-assignments/:id/review" element={<AssignmentReviewPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/mentor/dashboard" replace />} />
         </Routes>

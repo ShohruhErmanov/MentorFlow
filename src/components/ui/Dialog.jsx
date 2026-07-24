@@ -21,19 +21,19 @@ export default function Dialog({ isOpen, onClose, title, description, children }
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-[#191b23]/40 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-[#191b23]/40 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            className="relative w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 shadow-xl"
+            initial={{ opacity: 0, scale: 0.95, x: '-50%', y: '-50%' }}
+            animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+            exit={{ opacity: 0, scale: 0.95, x: '-50%', y: '-50%' }}
+            className="fixed left-1/2 top-1/2 z-[51] w-[calc(100%-2rem)] max-w-md overflow-hidden rounded-2xl bg-white p-6 shadow-xl"
             role="dialog"
             aria-modal="true"
             aria-labelledby={title ? 'dialog-title' : undefined}
@@ -48,7 +48,7 @@ export default function Dialog({ isOpen, onClose, title, description, children }
             )}
             {children}
           </motion.div>
-        </div>
+        </>
       )}
     </AnimatePresence>,
     document.body

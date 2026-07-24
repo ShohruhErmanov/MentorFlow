@@ -16,7 +16,7 @@ export const navigationItems = [
   { label: 'Guruhlar', path: '/mentor/groups', icon: Users },
   { label: "O'quvchilar", path: '/mentor/students', icon: GraduationCap },
   { label: 'Vazifalar', path: '/mentor/assignments', icon: ClipboardList },
-  { label: 'Topshirilgan vazifalar', path: '/mentor/submissions', icon: CheckSquare },
+  { label: 'Topshirilgan vazifalar', path: '/mentor/submitted-assignments', icon: CheckSquare },
   { label: 'Vazifani tekshirish', path: '/mentor/review', icon: ClipboardCheck },
   { label: 'Davomat', path: '/mentor/attendance', icon: CalendarCheck },
   { label: 'Reyting', path: '/mentor/rating', icon: Trophy },

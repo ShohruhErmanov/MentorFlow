@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import LearningResources from './resources/LearningResources';
 
 /*
  * ROOT CAUSE OF BROKEN MODAL WIDTH:
@@ -33,12 +34,20 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
     status: 'FAOL',
   });
 
+  const [resources, setResources] = useState({
+    pdf: null,
+    figma: null,
+    github: null,
+    video: null,
+  });
+
   const [errors, setErrors] = useState({});
 
   // Reset form when modal opens/closes or initialData changes
   useEffect(() => {
     if (initialData) {
       setFormData(initialData);
+      setResources(initialData.resources || { pdf: null, figma: null, github: null, video: null });
     } else {
       setFormData({
         name: '',
@@ -49,6 +58,7 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
         difficulty: 'Easy',
         status: 'FAOL',
       });
+      setResources({ pdf: null, figma: null, github: null, video: null });
     }
     setErrors({});
   }, [initialData, isOpen]);
@@ -75,7 +85,7 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      onSave(formData);
+      onSave({ ...formData, resources });
     }
   };
 
@@ -89,39 +99,38 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
   const modal = (
     <AnimatePresence>
       {isOpen && (
-        /* ── OVERLAY: fixed to viewport via portal, no parent transform ── */
-        <motion.div
-          key="overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'rgba(0,0,0,0.45)',
-            backdropFilter: 'blur(4px)',
-            WebkitBackdropFilter: 'blur(4px)',
-            padding: '16px',
-          }}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) onClose();
-          }}
-        >
+        <>
+          {/* ── OVERLAY: fixed to viewport via portal, no parent transform ── */}
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 9998,
+              backgroundColor: 'rgba(0,0,0,0.45)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+            }}
+            onClick={onClose}
+          />
+          
           {/* ── DIALOG: explicit pixel width, never collapses ── */}
           <motion.div
             key="dialog"
-            initial={{ opacity: 0, scale: 0.96, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 24 }}
+            initial={{ opacity: 0, scale: 0.96, x: '-50%', y: '-50%' }}
+            animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+            exit={{ opacity: 0, scale: 0.96, x: '-50%', y: '-50%' }}
             transition={{ type: 'spring', stiffness: 380, damping: 32 }}
             style={{
-              position: 'relative',
-              width: '100%',
+              position: 'fixed',
+              left: '50%',
+              top: '50%',
+              zIndex: 9999,
+              width: 'calc(100% - 2rem)',
               maxWidth: '768px',
               minWidth: '320px',
               backgroundColor: '#ffffff',
@@ -132,6 +141,7 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
               flexDirection: 'column',
               maxHeight: '90vh',
             }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* ── Header ── */}
             <div
@@ -314,6 +324,9 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
                   </div>
                 </div>
               </form>
+
+              {/* ── Learning Resources Section ── */}
+              <LearningResources resources={resources} setResources={setResources} />
             </div>
 
             {/* ── Footer ── */}
@@ -370,7 +383,7 @@ const CreateAssignmentModal = ({ isOpen, onClose, onSave, initialData }) => {
               </button>
             </div>
           </motion.div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   );
