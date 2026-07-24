@@ -5,11 +5,9 @@ import {
   GraduationCap,
   ClipboardList,
   CheckSquare,
-  ClipboardCheck,
   CalendarCheck,
   BarChart2,
   User,
-  Plus,
 } from 'lucide-react';
 
 const navItems = [
@@ -18,7 +16,6 @@ const navItems = [
   { to: '/oquvchilar', icon: GraduationCap, label: "O'quvchilar" },
   { to: '/vazifalar', icon: ClipboardList, label: 'Vazifalar' },
   { to: '/topshirilgan', icon: CheckSquare, label: 'Topshirilgan vazifalar' },
-  { to: '/tekshirish', icon: ClipboardCheck, label: 'Vazifani tekshirish' },
   { to: '/davomat', icon: CalendarCheck, label: 'Davomat' },
   { to: '/reyting', icon: BarChart2, label: 'Reyting' },
 ];
@@ -38,14 +35,8 @@ export default function SideNav() {
           </div>
         </div>
 
-        {/* New Task Button */}
-        <button className="w-full bg-primary-container text-on-background text-body-md font-medium py-2 px-4 rounded-lg mb-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-          <Plus size={18} />
-          Yangi vazifa
-        </button>
-
         {/* Nav Links */}
-        <ul className="space-y-1 flex-1">
+        <ul className="space-y-1 mt-8 flex-1">
           {navItems.map(({ to, icon: Icon, label }) => (
             <li key={to}>
               <NavLink

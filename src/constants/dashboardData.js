@@ -10,7 +10,6 @@ export const NAV_ITEMS = [
   { id: 'students',    label: "O'quvchilar",            Icon: GraduationCap,   path: '/mentor/students' },
   { id: 'assignments', label: 'Vazifalar',              Icon: ClipboardList,   path: '/mentor/assignments' },
   { id: 'submissions', label: 'Topshirilgan vazifalar', Icon: Inbox,           path: '/topshirilgan' },
-  { id: 'review',      label: 'Vazifani tekshirish',   Icon: ClipboardCheck,  path: '/tekshirish' },
   { id: 'attendance',  label: 'Davomat',                Icon: CalendarCheck,   path: '/davomat' },
   { id: 'leaderboard', label: 'Reyting',                Icon: Trophy,          path: '/reyting' },
 ]

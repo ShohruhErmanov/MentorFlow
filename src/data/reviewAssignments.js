@@ -2,7 +2,7 @@ export const reviewAssignmentsData = [
   {
     id: 1,
     title: 'React Dashboard Interfeysi',
-    breadcrumb: ['Vazifalar', 'Frontend Asoslari', 'Tekshirish'],
+    breadcrumb: ['Topshirilgan vazifalar', 'Frontend Asoslari', 'Tekshirish'],
     student: {
       name: 'Jasur Abdullayev',
       avatar: 'https://i.pravatar.cc/150?u=jasur-abdullayev',
@@ -70,7 +70,7 @@ export const reviewAssignmentsData = [
   {
     id: 2,
     title: 'REST API yaratish: Node.js va Express',
-    breadcrumb: ['Vazifalar', 'Backend Asoslari', 'Tekshirish'],
+    breadcrumb: ['Topshirilgan vazifalar', 'Backend Asoslari', 'Tekshirish'],
     student: {
       name: 'Madina To\'rayeva',
       avatar: '',
@@ -112,7 +112,7 @@ export const reviewAssignmentsData = [
   {
     id: 3,
     title: 'JavaScript asosi: DOM manipulyatsiyasi',
-    breadcrumb: ['Vazifalar', 'Frontend Asoslari', 'Tekshirish'],
+    breadcrumb: ['Topshirilgan vazifalar', 'Frontend Asoslari', 'Tekshirish'],
     student: {
       name: 'Sardor Aliyev',
       avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',

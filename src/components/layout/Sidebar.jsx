@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { Plus, UserRound, X } from 'lucide-react';
+import { UserRound, X } from 'lucide-react';
 import clsx from 'clsx';
-import Button from '../ui/Button';
 import { navigationItems } from '../../services/dashboardService';
 
 function LogoMark() {
@@ -76,11 +75,6 @@ export default function Sidebar({ open = false, onClose }) {
               <X size={20} aria-hidden="true" />
             </button>
           </div>
-
-          <Button className="mt-8 h-12 w-full justify-center rounded-lg text-[15px]" aria-label="Yangi vazifa yaratish">
-            <Plus size={19} strokeWidth={2.2} aria-hidden="true" />
-            Yangi vazifa
-          </Button>
 
           <nav className="mt-8 flex-1" aria-label="Asosiy bo'limlar">
             <ul className="space-y-1.5">
