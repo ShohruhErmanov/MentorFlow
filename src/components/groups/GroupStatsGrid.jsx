@@ -10,29 +10,29 @@ export default function GroupStatsGrid({ group, activeAssignmentsCount = 0 }) {
       label: "Jami o'quvchilar",
       value: `${group.students?.count || 0} ta`,
       icon: Users,
-      color: "text-blue-600",
-      bg: "bg-blue-100",
+      color: "text-blue-600 dark:text-blue-400",
+      bg: "bg-blue-100 dark:bg-blue-500/10",
     },
     {
       label: "Faol vazifalar",
       value: `${activeAssignmentsCount} ta`,
       icon: FileText,
-      color: "text-indigo-600",
-      bg: "bg-indigo-100",
+      color: "text-indigo-600 dark:text-indigo-400",
+      bg: "bg-indigo-100 dark:bg-indigo-500/10",
     },
     {
       label: "O'rtacha o'zlashtirish",
       value: `${group.progress || 0}%`,
       icon: TrendingUp,
-      color: "text-orange-600",
-      bg: "bg-orange-100",
+      color: "text-orange-600 dark:text-orange-400",
+      bg: "bg-orange-100 dark:bg-orange-500/10",
     },
     {
       label: "Qarzdorlar",
       value: "2 ta", // Mocked for now as per requirement
       icon: AlertTriangle,
-      color: "text-red-600",
-      bg: "bg-red-100",
+      color: "text-red-600 dark:text-red-400",
+      bg: "bg-red-100 dark:bg-red-500/10",
     }
   ];
 
@@ -50,8 +50,8 @@ export default function GroupStatsGrid({ group, activeAssignmentsCount = 0 }) {
               <stat.icon size={24} className={stat.color} />
             </div>
             <div>
-              <p className="text-xs font-semibold text-[#737686]">{stat.label}</p>
-              <h3 className="text-xl font-bold text-[#191b23]">{stat.value}</h3>
+              <p className="text-xs font-semibold text-[#737686] dark:text-slate-400">{stat.label}</p>
+              <h3 className="text-xl font-bold text-[#191b23] dark:text-white">{stat.value}</h3>
             </div>
           </Card>
         </motion.div>

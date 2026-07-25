@@ -47,23 +47,23 @@ export default function AttendanceTable({ students, onOpenModal }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: 0.28 }}
-      className="rounded-2xl border border-gray-100 bg-white shadow-sm"
+      className="rounded-2xl border border-gray-100 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
     >
       {/* Toolbar */}
-      <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between border-b border-gray-100">
-        <h3 className="text-lg font-bold text-gray-900">Talabalar Ro'yxati</h3>
+      <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-slate-700">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Talabalar Ro'yxati</h3>
 
         <div className="flex flex-wrap items-center gap-3">
           {/* Status filters */}
-          <div className="flex items-center gap-1 rounded-xl bg-gray-100 p-1">
+          <div className="flex items-center gap-1 rounded-xl bg-gray-100 p-1 dark:bg-slate-900/60">
             {statusFilters.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => handleFilter(key)}
                 className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
                   statusFilter === key
-                    ? 'bg-white text-gray-900 shadow-sm'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'bg-white text-gray-900 shadow-sm dark:bg-slate-700 dark:text-white'
+                    : 'text-gray-500 hover:text-gray-700 dark:text-slate-400 dark:hover:text-slate-200'
                 }`}
               >
                 {label}
@@ -73,13 +73,13 @@ export default function AttendanceTable({ students, onOpenModal }) {
 
           {/* Search */}
           <div className="relative">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500" />
             <input
               type="text"
               value={search}
               onChange={(e) => handleSearch(e.target.value)}
               placeholder="Ism bo'yicha qidirish..."
-              className="h-9 w-56 rounded-xl border border-gray-200 bg-white pl-9 pr-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-shadow"
+              className="h-9 w-56 rounded-xl border border-gray-200 bg-white pl-9 pr-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-shadow dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function AttendanceTable({ students, onOpenModal }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[700px]">
           <thead>
-            <tr className="border-b border-gray-100 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">
+            <tr className="border-b border-gray-100 text-left text-xs font-semibold uppercase tracking-wide text-gray-400 dark:border-slate-700 dark:text-slate-500">
               <th className="py-3 pl-5 pr-2">#</th>
               <th className="py-3 px-3">O'quvchi</th>
               <th className="py-3 px-3">Sana</th>
@@ -110,7 +110,7 @@ export default function AttendanceTable({ students, onOpenModal }) {
               ))
             ) : (
               <tr>
-                <td colSpan={6} className="py-12 text-center text-sm text-gray-400">
+                <td colSpan={6} className="py-12 text-center text-sm text-gray-400 dark:text-slate-500">
                   Natija topilmadi
                 </td>
               </tr>
@@ -121,8 +121,8 @@ export default function AttendanceTable({ students, onOpenModal }) {
 
       {/* Pagination */}
       {filtered.length > ROWS_PER_PAGE && (
-        <div className="flex items-center justify-between border-t border-gray-100 px-5 py-3">
-          <p className="text-xs text-gray-400">
+        <div className="flex items-center justify-between border-t border-gray-100 px-5 py-3 dark:border-slate-700">
+          <p className="text-xs text-gray-400 dark:text-slate-500">
             {(page - 1) * ROWS_PER_PAGE + 1}–{Math.min(page * ROWS_PER_PAGE, filtered.length)} / {filtered.length} talaba
           </p>
 
@@ -130,7 +130,7 @@ export default function AttendanceTable({ students, onOpenModal }) {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
             >
               <ChevronLeft size={16} />
             </button>
@@ -141,7 +141,7 @@ export default function AttendanceTable({ students, onOpenModal }) {
                 className={`flex h-8 w-8 items-center justify-center rounded-lg text-sm font-semibold transition-colors ${
                   p === page
                     ? 'bg-blue-600 text-white'
-                    : 'text-gray-500 hover:bg-gray-100'
+                    : 'text-gray-500 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-700'
                 }`}
               >
                 {p}
@@ -150,7 +150,7 @@ export default function AttendanceTable({ students, onOpenModal }) {
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
             >
               <ChevronRight size={16} />
             </button>

@@ -18,7 +18,7 @@ export default function ExportModal({ isOpen, onClose, onExport }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Ma'lumotlarni yuklab olish">
       <div className="space-y-4">
-        <p className="text-sm text-[#737686]">
+        <p className="text-sm text-[#737686] dark:text-slate-400">
           O'quvchilar ro'yxatini qaysi formatda yuklab olmoqchisiz?
         </p>
 
@@ -29,8 +29,8 @@ export default function ExportModal({ isOpen, onClose, onExport }) {
               onClick={() => setFormat(f)}
               className={`rounded-xl border p-4 text-center transition-all ${
                 format === f
-                  ? 'border-[#2563eb] bg-[#f3f3fe] text-[#2563eb]'
-                  : 'border-[#e1e2ed] hover:border-[#2563eb] hover:bg-gray-50'
+                  ? 'border-[#2563eb] bg-[#f3f3fe] text-[#2563eb] dark:bg-blue-500/10'
+                  : 'border-[#e1e2ed] hover:border-[#2563eb] hover:bg-gray-50 dark:border-slate-700 dark:hover:bg-slate-700/40 dark:text-slate-300'
               }`}
             >
               <span className="block font-bold uppercase">{f}</span>
@@ -38,7 +38,7 @@ export default function ExportModal({ isOpen, onClose, onExport }) {
           ))}
         </div>
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed]">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] dark:border-slate-700">
           <Button variant="ghost" onClick={onClose} disabled={isExporting}>
             Bekor qilish
           </Button>

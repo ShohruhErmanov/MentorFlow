@@ -16,7 +16,7 @@ export default function Avatar({
   return (
     <span
       className={clsx(
-        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#c3c6d7] bg-[#d0e1fb] font-semibold text-[#38485d]',
+        'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#c3c6d7] bg-[#d0e1fb] font-semibold text-[#38485d] dark:border-slate-600 dark:bg-blue-500/20 dark:text-blue-200',
         sizes[size],
         className,
       )}

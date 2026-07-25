@@ -28,27 +28,27 @@ export default function ImportDialog({ isOpen, onClose, onImport }) {
   return (
     <Modal isOpen={isOpen} onClose={handleClose} title="Guruhlarni import qilish">
       <div className="space-y-4">
-        <p className="text-sm text-[#737686]">
-          Guruhlar ro'yxati mavjud bo'lgan CSV yoki Excel faylini yuklang. 
+        <p className="text-sm text-[#737686] dark:text-slate-400">
+          Guruhlar ro'yxati mavjud bo'lgan CSV yoki Excel faylini yuklang.
           Kiritilgan ma'lumotlar joriy ro'yxatga qo'shiladi.
         </p>
 
         <FileDropzone onFileSelect={setFile} accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
 
         {file && (
-          <div className="mt-4 border border-[#e1e2ed] rounded-xl overflow-hidden">
-            <div className="bg-gray-50 px-4 py-2 border-b border-[#e1e2ed]">
-              <p className="text-xs font-semibold text-[#434655]">Preview (Fake Data)</p>
+          <div className="mt-4 border border-[#e1e2ed] rounded-xl overflow-hidden dark:border-slate-700">
+            <div className="bg-gray-50 px-4 py-2 border-b border-[#e1e2ed] dark:bg-slate-900/60 dark:border-slate-700">
+              <p className="text-xs font-semibold text-[#434655] dark:text-slate-400">Preview (Fake Data)</p>
             </div>
-            <div className="p-4 text-sm text-[#737686]">
+            <div className="p-4 text-sm text-[#737686] dark:text-slate-400">
               <p>✔ 15 ta guruh topildi</p>
               <p>✔ Ustunlar formati to'g'ri</p>
-              <p className="mt-2 font-medium text-[#191b23]">Import qilishga tayyor.</p>
+              <p className="mt-2 font-medium text-[#191b23] dark:text-white">Import qilishga tayyor.</p>
             </div>
           </div>
         )}
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed]">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] dark:border-slate-700">
           <Button variant="ghost" onClick={handleClose} disabled={isImporting}>Bekor qilish</Button>
           <LoadingButton 
             variant="primary" 

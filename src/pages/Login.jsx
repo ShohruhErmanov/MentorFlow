@@ -34,7 +34,7 @@ const FEATURES = [
 function LeftPanel() {
   return (
     <section
-      className="hidden lg:flex flex-col h-full bg-gradient-hero px-10 xl:px-14 py-8 relative overflow-hidden"
+      className="hidden lg:flex flex-col h-full bg-gradient-hero dark:bg-none dark:bg-slate-900 px-10 xl:px-14 py-8 relative overflow-hidden"
       aria-label="MentorFlow platformasi haqida"
     >
       {/* Decorative blobs */}
@@ -60,7 +60,7 @@ function LeftPanel() {
       <div className="flex flex-col flex-shrink-0 mt-8 xl:mt-10">
         {/* Hero Heading */}
         <motion.h2
-          className="font-bold text-heading leading-[1.05] tracking-tight max-w-[560px]"
+          className="font-bold text-heading dark:text-white leading-[1.05] tracking-tight max-w-[560px]"
           style={{ fontSize: 'clamp(32px, 3.6vw, 52px)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ function LeftPanel() {
 
         {/* Description */}
         <motion.p
-          className="text-base xl:text-[17px] text-body leading-[1.7] mt-4 mb-6 max-w-[420px]"
+          className="text-base xl:text-[17px] text-body dark:text-slate-400 leading-[1.7] mt-4 mb-6 max-w-[420px]"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
@@ -108,7 +108,7 @@ function LeftPanel() {
 
       {/* Live-count pill */}
       <motion.div
-        className="absolute bottom-6 right-6 bg-white/85 backdrop-blur-sm border border-border/60
+        className="absolute bottom-6 right-6 bg-white/85 dark:bg-slate-800/85 backdrop-blur-sm border border-border/60 dark:border-slate-700/60
                    rounded-full px-4 py-1.5 flex items-center gap-2 shadow-card"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ function LeftPanel() {
         aria-hidden="true"
       >
         <span className="w-1.5 h-1.5 bg-success rounded-full animate-pulse" />
-        <span className="text-[11px] font-semibold text-heading">1,200+ faol o'quvchi</span>
+        <span className="text-[11px] font-semibold text-heading dark:text-white">1,200+ faol o'quvchi</span>
       </motion.div>
     </section>
   )
@@ -129,7 +129,7 @@ function LeftPanel() {
 function RightPanel({ loginProps }) {
   return (
     <section
-      className="flex h-full bg-white dark:bg-gray-950 items-center justify-center
+      className="flex h-full bg-white dark:bg-slate-900 items-center justify-center
                  px-4 sm:px-8 lg:px-10 overflow-hidden"
       aria-label="Tizimga kirish bo'limi"
     >

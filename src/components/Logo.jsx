@@ -25,11 +25,11 @@ export default function Logo({ size = 'md', className = '' }) {
       {/* Icon badge */}
       <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-blue-400 shadow-md shadow-primary/30">
         <GraduationCap size={s.icon} className="text-white" strokeWidth={2} />
-        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-success rounded-full border-2 border-white" />
+        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-success rounded-full border-2 border-white dark:border-slate-900" />
       </div>
 
       {/* Text */}
-      <span className={`font-bold ${s.text} text-heading tracking-tight`}>
+      <span className={`font-bold ${s.text} text-heading dark:text-white tracking-tight`}>
         Mentor<span className="text-primary">Flow</span>
       </span>
     </motion.div>

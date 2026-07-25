@@ -15,12 +15,12 @@ export default function AttendanceCalendar({ weekDays, days }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: 0.15 }}
-      className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+      className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800"
     >
       {/* Title + Legend */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-        <h3 className="text-lg font-bold text-gray-900">Oylik Kalendar</h3>
-        <div className="flex items-center gap-4 text-xs font-medium text-gray-500">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Oylik Kalendar</h3>
+        <div className="flex items-center gap-4 text-xs font-medium text-gray-500 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-blue-500" /> Kelgan
           </span>
@@ -36,7 +36,7 @@ export default function AttendanceCalendar({ weekDays, days }) {
       {/* Week day headers */}
       <div className="grid grid-cols-7 gap-1 mb-2">
         {weekDays.map((d) => (
-          <div key={d} className="text-center text-xs font-semibold text-gray-400 py-1">
+          <div key={d} className="text-center text-xs font-semibold text-gray-400 dark:text-slate-500 py-1">
             {d}
           </div>
         ))}
@@ -61,8 +61,8 @@ export default function AttendanceCalendar({ weekDays, days }) {
               className={`
                 relative flex flex-col items-center justify-center aspect-square rounded-xl text-sm font-semibold transition-colors
                 ${isSelected
-                  ? 'border-2 border-blue-500 bg-blue-50 text-blue-700'
-                  : 'border border-transparent text-gray-700 hover:bg-gray-50'
+                  ? 'border-2 border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400'
+                  : 'border border-transparent text-gray-700 hover:bg-gray-50 dark:text-slate-300 dark:hover:bg-slate-700/40'
                 }
               `}
             >

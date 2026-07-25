@@ -20,16 +20,17 @@ export default function Toast({ message, isVisible, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.3, type: "spring", bounce: 0.4 }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl bg-white p-4 pr-12 shadow-[0_12px_24px_rgba(25,27,35,0.12)] border border-[#e1e2ed]"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl bg-white p-4 pr-12 shadow-[0_12px_24px_rgba(25,27,35,0.12)] border border-[#e1e2ed] dark:bg-slate-800 dark:border-slate-700 dark:shadow-black/30"
           role="alert"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
             <CheckCircle2 size={18} />
           </div>
-          <p className="text-sm font-semibold text-[#191b23]">{message}</p>
-          <button 
+          <p className="text-sm font-semibold text-[#191b23] dark:text-white">{message}</p>
+          <button
             onClick={onClose}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737686] hover:text-[#191b23] transition-colors"
+            aria-label="Yopish"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#737686] hover:text-[#191b23] transition-colors dark:text-slate-400 dark:hover:text-white"
           >
             <X size={16} />
           </button>

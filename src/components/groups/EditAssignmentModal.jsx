@@ -67,32 +67,32 @@ export default function EditAssignmentModal({ isOpen, onClose, onUpdate, assignm
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-h-[70vh] overflow-y-auto px-1 scrollbar-hide">
         
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Vazifa nomi</label>
+          <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Vazifa nomi</label>
           <input
             {...register('title')}
             placeholder="Masalan, React Hooks amaliyoti"
-            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
           />
           <InputError message={errors.title?.message} />
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Tavsif (Description)</label>
+          <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Tavsif (Description)</label>
           <textarea
             {...register('description')}
             rows={3}
             placeholder="Vazifa bo'yicha qo'shimcha ma'lumot va ko'rsatmalar..."
-            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] resize-none"
+            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 resize-none"
           />
           <InputError message={errors.description?.message} />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Kurs</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Kurs</label>
             <select
               {...register('course')}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             >
               <option value="">Tanlang...</option>
               <option value="Frontend">Frontend</option>
@@ -104,11 +104,11 @@ export default function EditAssignmentModal({ isOpen, onClose, onUpdate, assignm
             <InputError message={errors.course?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Muddat (Deadline)</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Muddat (Deadline)</label>
             <input
               type="date"
               {...register('deadline')}
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.deadline?.message} />
           </div>
@@ -116,20 +116,20 @@ export default function EditAssignmentModal({ isOpen, onClose, onUpdate, assignm
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Maksimal ball</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Maksimal ball</label>
             <input
               type="number"
               {...register('maxScore')}
               placeholder="100"
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.maxScore?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Muhimlik (Priority)</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Muhimlik (Priority)</label>
             <select
               {...register('priority')}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             >
               <option value="Low">Low (Past)</option>
               <option value="Medium">Medium (O'rta)</option>
@@ -138,10 +138,10 @@ export default function EditAssignmentModal({ isOpen, onClose, onUpdate, assignm
             <InputError message={errors.priority?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Qiyinlik (Difficulty)</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Qiyinlik (Difficulty)</label>
             <select
               {...register('difficulty')}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             >
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
@@ -152,11 +152,11 @@ export default function EditAssignmentModal({ isOpen, onClose, onUpdate, assignm
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Fayl biriktirish (UI Only)</label>
+          <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Fayl biriktirish (UI Only)</label>
           <FileDropzone onFileSelect={setAttachedFile} accept=".pdf, .docx, .zip" />
         </div>
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] sticky bottom-0 bg-white">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] sticky bottom-0 bg-white dark:border-slate-700 dark:bg-slate-800">
           <Button variant="ghost" type="button" onClick={onClose} disabled={isSubmitting}>Bekor qilish</Button>
           <LoadingButton variant="primary" type="submit" isLoading={isSubmitting} loadingText="Saqlanmoqda...">
             Saqlash

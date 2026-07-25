@@ -24,7 +24,7 @@ export default function StudentTable({ students }) {
   );
 
   return (
-    <div className="rounded-2xl border border-[#e1e2ed] bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-[#e1e2ed] bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
       <SearchToolbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       {filteredStudents.length === 0 ? (
@@ -40,7 +40,7 @@ export default function StudentTable({ students }) {
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[800px] text-left">
               <thead>
-                <tr className="border-b border-[#e1e2ed] text-xs font-semibold uppercase tracking-wider text-[#737686]">
+                <tr className="border-b border-[#e1e2ed] text-xs font-semibold uppercase tracking-wider text-[#737686] dark:border-slate-700 dark:text-slate-400">
                   <th className="px-6 py-4">O'quvchi</th>
                   <th className="px-6 py-4">Telefon</th>
                   <th className="px-6 py-4">O'zlashtirish</th>
@@ -48,7 +48,7 @@ export default function StudentTable({ students }) {
                   <th className="px-6 py-4 text-right">Amallar</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#e1e2ed]">
+              <tbody className="divide-y divide-[#e1e2ed] dark:divide-slate-700">
                 <AnimatePresence>
                   {currentStudents.map((student, idx) => (
                     <StudentRow key={student.id} student={student} index={idx} />
@@ -58,7 +58,7 @@ export default function StudentTable({ students }) {
             </table>
           </div>
           {totalPages > 1 && (
-            <div className="mt-6 border-t border-[#e1e2ed] pt-4">
+            <div className="mt-6 border-t border-[#e1e2ed] pt-4 dark:border-slate-700">
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}

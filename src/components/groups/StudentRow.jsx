@@ -21,19 +21,19 @@ export default function StudentRow({ student, index }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: index * 0.05 }}
-      className="group border-b border-[#e1e2ed] bg-white transition-colors hover:bg-[#faf8ff] last:border-none"
+      className="group border-b border-[#e1e2ed] bg-white transition-colors hover:bg-[#faf8ff] last:border-none dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700/40"
     >
       <td className="whitespace-nowrap px-6 py-4">
         <div className="flex items-center gap-3">
           <Avatar initials={getInitials(student.name)} size="md" />
           <div>
-            <p className="text-sm font-semibold text-[#191b23]">{student.name}</p>
-            <p className="text-xs font-medium text-[#737686]">ID: #{student.id}</p>
+            <p className="text-sm font-semibold text-[#191b23] dark:text-white">{student.name}</p>
+            <p className="text-xs font-medium text-[#737686] dark:text-slate-400">ID: #{student.id}</p>
           </div>
         </div>
       </td>
       <td className="whitespace-nowrap px-6 py-4">
-        <p className="text-sm font-medium text-[#434655]">{student.phone}</p>
+        <p className="text-sm font-medium text-[#434655] dark:text-slate-400">{student.phone}</p>
       </td>
       <td className="whitespace-nowrap px-6 py-4">
         <ProgressIndicator value={student.progress} />
@@ -44,18 +44,18 @@ export default function StudentRow({ student, index }) {
       <td className="whitespace-nowrap px-6 py-4 text-right">
         <Dropdown
           trigger={
-            <Button variant="ghost" size="icon" className="h-8 w-8 text-[#737686] group-hover:text-[#2563eb]">
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-[#737686] group-hover:text-[#2563eb] dark:text-slate-400">
               <MoreHorizontal size={18} />
             </Button>
           }
         >
           <div className="py-1">
-            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb]">Ko'rish</button>
-            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb]">Tahrirlash</button>
-            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb]">Davomat</button>
-            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb]">Topshiriqlar</button>
-            <div className="my-1 h-px bg-[#e1e2ed]"></div>
-            <button className="flex w-full items-center px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50">O'chirish</button>
+            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb] dark:text-slate-400 dark:hover:bg-slate-700/40">Ko'rish</button>
+            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb] dark:text-slate-400 dark:hover:bg-slate-700/40">Tahrirlash</button>
+            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb] dark:text-slate-400 dark:hover:bg-slate-700/40">Davomat</button>
+            <button className="flex w-full items-center px-4 py-2 text-sm text-[#434655] hover:bg-[#f3f3fe] hover:text-[#2563eb] dark:text-slate-400 dark:hover:bg-slate-700/40">Topshiriqlar</button>
+            <div className="my-1 h-px bg-[#e1e2ed] dark:bg-slate-700"></div>
+            <button className="flex w-full items-center px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10">O'chirish</button>
           </div>
         </Dropdown>
       </td>

@@ -27,7 +27,7 @@ export default function AttendanceHeader({
     >
       {/* Left */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 leading-tight">Davomat</h1>
+        <h1 className="text-3xl font-bold text-gray-900 leading-tight dark:text-white">Davomat</h1>
         <p className="mt-1 text-sm text-blue-600 font-medium">
           Joriy oydagi talabalar ishtiroki nazorati
         </p>
@@ -39,7 +39,7 @@ export default function AttendanceHeader({
         <select
           value={selectedGroup}
           onChange={(e) => setSelectedGroup(e.target.value)}
-          className="h-10 rounded-xl border border-gray-200 bg-white px-4 pr-8 text-sm font-medium text-gray-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-shadow cursor-pointer"
+          className="h-10 rounded-xl border border-gray-200 bg-white px-4 pr-8 text-sm font-medium text-gray-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-shadow cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
         >
           {groupOptions.map((g) => (
             <option key={g} value={g}>{g}</option>
@@ -47,21 +47,21 @@ export default function AttendanceHeader({
         </select>
 
         {/* Month selector */}
-        <div className="flex items-center gap-1 rounded-xl border border-gray-200 bg-white px-1">
+        <div className="flex items-center gap-1 rounded-xl border border-gray-200 bg-white px-1 dark:border-slate-700 dark:bg-slate-800">
           <button
             onClick={prevMonth}
             disabled={monthIdx === 0}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
           >
             <ChevronLeft size={18} />
           </button>
-          <span className="min-w-[130px] text-center text-sm font-semibold text-gray-700">
+          <span className="min-w-[130px] text-center text-sm font-semibold text-gray-700 dark:text-slate-300">
             {selectedMonth}
           </span>
           <button
             onClick={nextMonth}
             disabled={monthIdx === monthOptions.length - 1}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 disabled:opacity-30 disabled:cursor-not-allowed dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
           >
             <ChevronRight size={18} />
           </button>

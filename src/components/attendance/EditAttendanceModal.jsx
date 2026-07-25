@@ -46,7 +46,7 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998] dark:bg-black/60"
           />
 
           {/* Modal Container */}
@@ -57,18 +57,18 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-xl min-w-[520px] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+              className="relative w-full max-w-xl min-w-[520px] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto dark:bg-slate-800"
             >
               <div className="p-6">
                 {/* Header */}
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Tahrirlash</h3>
-                    <p className="text-sm font-medium text-gray-500 mt-1">{student.name}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Tahrirlash</h3>
+                    <p className="text-sm font-medium text-gray-500 mt-1 dark:text-slate-400">{student.name}</p>
                   </div>
                   <button
                     onClick={onClose}
-                    className="rounded-full p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+                    className="rounded-full p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
                   >
                     <X size={20} />
                   </button>
@@ -79,28 +79,28 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
                   <div className="grid grid-cols-2 gap-4">
                     {/* Date */}
                     <div>
-                      <label className="mb-1.5 block text-xs font-semibold text-gray-700">Sana</label>
+                      <label className="mb-1.5 block text-xs font-semibold text-gray-700 dark:text-slate-300">Sana</label>
                       <div className="relative">
-                        <CalendarIcon size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <CalendarIcon size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500" />
                         <input
                           type="text"
                           value={formData.date}
                           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                          className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
+                          className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-700"
                         />
                       </div>
                     </div>
 
                     {/* Time */}
                     <div>
-                      <label className="mb-1.5 block text-xs font-semibold text-gray-700">Vaqt</label>
+                      <label className="mb-1.5 block text-xs font-semibold text-gray-700 dark:text-slate-300">Vaqt</label>
                       <div className="relative">
-                        <Clock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Clock size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500" />
                         <input
                           type="time"
                           value={formData.time}
                           onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                          className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
+                          className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-700 dark:[color-scheme:dark]"
                         />
                       </div>
                     </div>
@@ -108,11 +108,11 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
 
                   {/* Status Select */}
                   <div>
-                    <label className="mb-1.5 block text-xs font-semibold text-gray-700">Holat</label>
+                    <label className="mb-1.5 block text-xs font-semibold text-gray-700 dark:text-slate-300">Holat</label>
                     <select
                       value={formData.status}
                       onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 px-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
+                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 px-3 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:bg-slate-700"
                     >
                       {statuses.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
                     </select>
@@ -120,13 +120,13 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
 
                   {/* Comment */}
                   <div>
-                    <label className="mb-1.5 block text-xs font-semibold text-gray-700">Izoh</label>
+                    <label className="mb-1.5 block text-xs font-semibold text-gray-700 dark:text-slate-300">Izoh</label>
                     <textarea
                       value={formData.comment}
                       onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
                       placeholder="Izoh kiriting (ixtiyoriy)..."
                       rows={3}
-                      className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-3.5 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
+                      className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-3.5 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-700"
                     />
                   </div>
 
@@ -135,7 +135,7 @@ export default function EditAttendanceModal({ isOpen, onClose, student, onSave }
                     <button
                       type="button"
                       onClick={onClose}
-                      className="flex-1 rounded-xl bg-gray-100 py-3.5 text-[15px] font-semibold text-gray-700 transition-colors hover:bg-gray-200"
+                      className="flex-1 rounded-xl bg-gray-100 py-3.5 text-[15px] font-semibold text-gray-700 transition-colors hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
                     >
                       Bekor qilish
                     </button>

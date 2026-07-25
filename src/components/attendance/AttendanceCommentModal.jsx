@@ -32,7 +32,7 @@ export default function AttendanceCommentModal({ isOpen, onClose, student, onSav
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998] dark:bg-black/60"
           />
 
           {/* Modal Container */}
@@ -43,18 +43,18 @@ export default function AttendanceCommentModal({ isOpen, onClose, student, onSav
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-xl min-w-[520px] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-[85vh]"
+              className="relative w-full max-w-xl min-w-[520px] bg-white rounded-2xl shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-[85vh] dark:bg-slate-800"
             >
               <div className="p-6 flex flex-col h-full">
                 {/* Header */}
                 <div className="mb-6 flex items-center justify-between shrink-0">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Izoh</h3>
-                    <p className="text-sm font-medium text-gray-500 mt-1">{student.name}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Izoh</h3>
+                    <p className="text-sm font-medium text-gray-500 mt-1 dark:text-slate-400">{student.name}</p>
                   </div>
                   <button
                     onClick={onClose}
-                    className="rounded-full p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+                    className="rounded-full p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors dark:text-slate-500 dark:hover:bg-slate-700 dark:hover:text-slate-300"
                   >
                     <X size={20} />
                   </button>
@@ -64,13 +64,13 @@ export default function AttendanceCommentModal({ isOpen, onClose, student, onSav
                   {/* New Comment Form */}
                   <form onSubmit={handleSubmit}>
                     <div className="relative">
-                      <MessageSquare size={18} className="absolute left-3.5 top-3.5 text-gray-400" />
+                      <MessageSquare size={18} className="absolute left-3.5 top-3.5 text-gray-400 dark:text-slate-500" />
                       <textarea
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                         placeholder="Yangi izoh kiriting..."
                         rows={3}
-                        className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-3.5 pl-11 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
+                        className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 p-3.5 pl-11 text-[15px] outline-none focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-700"
                       />
                     </div>
                     <div className="mt-3 flex justify-end">
@@ -87,17 +87,17 @@ export default function AttendanceCommentModal({ isOpen, onClose, student, onSav
                   {/* Previous Comments */}
                   {comments.length > 0 && (
                     <div>
-                      <h4 className="mb-4 text-[11px] font-bold uppercase tracking-wider text-gray-400">Oldingi izohlar</h4>
+                      <h4 className="mb-4 text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500">Oldingi izohlar</h4>
                       <div className="space-y-3">
                         {comments.map((comment) => (
-                          <div key={comment.id} className="rounded-xl bg-gray-50 p-4 border border-gray-100">
+                          <div key={comment.id} className="rounded-xl bg-gray-50 p-4 border border-gray-100 dark:bg-slate-900/40 dark:border-slate-700">
                             <div className="mb-2 flex items-center justify-between">
-                              <span className="text-sm font-semibold text-gray-900">Mentor</span>
-                              <span className="flex items-center gap-1.5 text-xs font-medium text-gray-400">
+                              <span className="text-sm font-semibold text-gray-900 dark:text-white">Mentor</span>
+                              <span className="flex items-center gap-1.5 text-xs font-medium text-gray-400 dark:text-slate-500">
                                 <CalendarIcon size={12} /> {comment.date}
                               </span>
                             </div>
-                            <p className="text-[15px] text-gray-600 leading-relaxed">{comment.text}</p>
+                            <p className="text-[15px] text-gray-600 leading-relaxed dark:text-slate-400">{comment.text}</p>
                           </div>
                         ))}
                       </div>

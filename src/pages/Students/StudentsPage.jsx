@@ -64,8 +64,8 @@ export default function StudentsPage() {
       className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"
     >
       <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-[#191b23] sm:text-3xl">O'quvchilar</h1>
-        <p className="mt-2 text-sm text-[#737686]">Barcha o'quvchilar ro'yxati va ularning joriy holati.</p>
+        <h1 className="text-2xl font-bold tracking-tight text-[#191b23] dark:text-white sm:text-3xl">O'quvchilar</h1>
+        <p className="mt-2 text-sm text-[#737686] dark:text-slate-400">Barcha o'quvchilar ro'yxati va ularning joriy holati.</p>
       </div>
 
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -80,7 +80,7 @@ export default function StudentsPage() {
               }}
             />
           </div>
-          <Button variant="ghost" onClick={handleOpenFilter} className="border border-[#e1e2ed] bg-white text-sm shrink-0">
+          <Button variant="ghost" onClick={handleOpenFilter} className="border border-[#e1e2ed] bg-white text-sm shrink-0 dark:border-slate-700 dark:bg-slate-800">
             <Filter size={16} />
             <span className="hidden sm:inline">Filter</span>
           </Button>
@@ -90,7 +90,7 @@ export default function StudentsPage() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm font-medium text-[#434655] outline-none hover:border-[#2563eb]"
+            className="rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm font-medium text-[#434655] outline-none hover:border-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
           >
             <option value="newest">Eng yangi</option>
             <option value="oldest">Eng eski</option>

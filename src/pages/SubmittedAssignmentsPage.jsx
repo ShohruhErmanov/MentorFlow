@@ -134,14 +134,14 @@ export default function SubmittedAssignmentsPage() {
 
       <div className="mb-8 relative max-w-md">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Search size={18} className="text-gray-400" />
+          <Search size={18} className="text-gray-400 dark:text-slate-500" />
         </div>
         <input
           type="text"
           placeholder="O'quvchi, guruh yoki vazifani qidiring..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full h-11 pl-10 pr-4 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-shadow"
+          className="w-full h-11 pl-10 pr-4 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-sm text-gray-900 dark:text-white outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-500/20 transition-shadow"
         />
       </div>
 

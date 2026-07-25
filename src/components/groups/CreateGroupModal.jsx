@@ -79,20 +79,20 @@ export default function CreateGroupModal({ isOpen, onClose, onCreate }) {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-h-[70vh] overflow-y-auto px-1 scrollbar-hide">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="sm:col-span-2">
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Guruh nomi</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Guruh nomi</label>
             <input
               {...register('name')}
               placeholder="Masalan, Frontend N1"
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.name?.message} />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Kurs</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Kurs</label>
             <select
               {...register('course')}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             >
               <option value="">Tanlang...</option>
               <option value="Frontend">Frontend</option>
@@ -104,36 +104,36 @@ export default function CreateGroupModal({ isOpen, onClose, onCreate }) {
             <InputError message={errors.course?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Mentor</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Mentor</label>
             <input
               {...register('mentor')}
               placeholder="Mentor ism-sharifi"
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.mentor?.message} />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Boshlanish sanasi</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Boshlanish sanasi</label>
             <input
               type="date"
               {...register('startDate')}
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.startDate?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Tugash sanasi</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Tugash sanasi</label>
             <input
               type="date"
               {...register('endDate')}
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.endDate?.message} />
           </div>
 
           <div className="sm:col-span-2">
-            <label className="mb-2 block text-sm font-semibold text-[#434655]">Hafta kunlari</label>
+            <label className="mb-2 block text-sm font-semibold text-[#434655] dark:text-slate-400">Hafta kunlari</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {WEEKDAYS.map((day) => (
                 <Checkbox
@@ -149,39 +149,39 @@ export default function CreateGroupModal({ isOpen, onClose, onCreate }) {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Boshlanish vaqti</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Boshlanish vaqti</label>
             <input
               type="time"
               {...register('startTime')}
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.startTime?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Tugash vaqti</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Tugash vaqti</label>
             <input
               type="time"
               {...register('endTime')}
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.endTime?.message} />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">O'quvchilar soni (Max)</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">O'quvchilar soni (Max)</label>
             <input
               type="number"
               {...register('capacity')}
               placeholder="Masalan, 25"
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500"
             />
             <InputError message={errors.capacity?.message} />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Status</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Status</label>
             <select
               {...register('status')}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white"
             >
               <option value="Faol">Faol</option>
               <option value="Yakunlangan">Yakunlangan</option>
@@ -191,18 +191,18 @@ export default function CreateGroupModal({ isOpen, onClose, onCreate }) {
           </div>
 
           <div className="sm:col-span-2">
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Qo'shimcha ma'lumot (Ixtiyoriy)</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-400">Qo'shimcha ma'lumot (Ixtiyoriy)</label>
             <textarea
               {...register('description')}
               rows={3}
               placeholder="Guruh haqida qo'shimcha ma'lumot kiriting..."
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] resize-none"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 resize-none"
             />
             <InputError message={errors.description?.message} />
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] sticky bottom-0 bg-white">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] sticky bottom-0 bg-white dark:border-slate-700 dark:bg-slate-800">
           <Button variant="ghost" onClick={onClose} disabled={isSubmitting}>Bekor qilish</Button>
           <LoadingButton variant="primary" type="submit" isLoading={isSubmitting} loadingText="Saqlanmoqda...">
             Saqlash

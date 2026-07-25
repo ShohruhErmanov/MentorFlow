@@ -9,12 +9,12 @@ export default function GroupHeader({ group, onEditClick, onAddAssignmentClick }
   return (
     <div className="mb-8 space-y-4">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm font-medium text-[#737686]">
+      <div className="flex items-center gap-2 text-sm font-medium text-[#737686] dark:text-slate-400">
         <Link to="/mentor/groups" className="hover:text-[#2563eb] transition-colors">
           Guruhlar
         </Link>
         <ChevronRight size={16} />
-        <span className="text-[#191b23]">{group.name}</span>
+        <span className="text-[#191b23] dark:text-white">{group.name}</span>
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -23,10 +23,10 @@ export default function GroupHeader({ group, onEditClick, onAddAssignmentClick }
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <h1 className="text-2xl font-bold tracking-tight text-[#191b23] sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[#191b23] dark:text-white sm:text-3xl">
             {group.course} Dasturlash - {group.name}
           </h1>
-          <p className="mt-1 text-sm font-medium text-[#737686]">
+          <p className="mt-1 text-sm font-medium text-[#737686] dark:text-slate-400">
             {group.schedule} | {group.time}
           </p>
         </motion.div>
@@ -37,7 +37,7 @@ export default function GroupHeader({ group, onEditClick, onAddAssignmentClick }
           transition={{ duration: 0.3, delay: 0.1 }}
           className="flex items-center gap-3"
         >
-          <Button variant="ghost" onClick={onEditClick} className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe]">
+          <Button variant="ghost" onClick={onEditClick} className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe] dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700/40">
             <Edit2 size={18} />
             <span>Tahrirlash</span>
           </Button>

@@ -8,7 +8,7 @@ const TABS = [
 
 export default function StudentTabs({ activeTab, onTabChange }) {
   return (
-    <div className="border-b border-[#f3f4f6]">
+    <div className="border-b border-[#f3f4f6] dark:border-slate-700">
       <nav className="-mb-px flex space-x-4">
         {TABS.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -17,7 +17,7 @@ export default function StudentTabs({ activeTab, onTabChange }) {
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
               className={`relative py-5 px-4 text-[17px] font-bold transition-colors ${
-                isActive ? 'text-[#2563eb]' : 'text-[#737686] hover:text-[#191b23]'
+                isActive ? 'text-[#2563eb]' : 'text-[#737686] dark:text-slate-400 hover:text-[#191b23] dark:hover:text-white'
               }`}
             >
               {tab.label}

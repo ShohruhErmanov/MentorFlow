@@ -2,6 +2,44 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+/* ── Theme CSS Custom Properties ──────────────────────────────────────────── */
+
+:root {
+  --color-bg: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-sidebar: #FFFFFF;
+  --color-navbar: #FFFFFF;
+  --color-input: #FFFFFF;
+  --color-border: #E1E2ED;
+  --color-text: #0F172A;
+  --color-text-secondary: #434655;
+  --color-text-muted: #737686;
+  --color-hover: #F3F3FE;
+  --color-surface-alt: #F7F8FF;
+  --color-overlay: rgba(25, 27, 35, 0.35);
+  --color-icon-bg: #F3F3FE;
+  --color-divider: #E1E2ED;
+}
+
+html.dark {
+  --color-bg: #0F172A;
+  --color-card: #1E293B;
+  --color-sidebar: #111827;
+  --color-navbar: #111827;
+  --color-input: #1E293B;
+  --color-border: #334155;
+  --color-text: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #94A3B8;
+  --color-hover: rgba(30, 41, 59, 0.7);
+  --color-surface-alt: #1E293B;
+  --color-overlay: rgba(0, 0, 0, 0.55);
+  --color-icon-bg: rgba(30, 41, 59, 0.8);
+  --color-divider: #334155;
+}
+
+/* ── Base resets ──────────────────────────────────────────────────────────── */
+
 *,
 *::before,
 *::after {
@@ -10,13 +48,14 @@
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 body {
   min-width: 320px;
   margin: 0;
-  background-color: #faf8ff;
-  color: #191b23;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,10 +69,27 @@ textarea {
   font: inherit;
 }
 
+/* ── Global transition for theme switching ─────────────────────────────── */
+
+*:not([class*="no-transition"]) {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* ── Selection ────────────────────────────────────────────────────────── */
+
 ::selection {
   background-color: #dbe1ff;
   color: #00174b;
 }
+
+html.dark ::selection {
+  background-color: rgba(37, 99, 235, 0.4);
+  color: #f1f5f9;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -47,6 +103,10 @@ textarea {
 ::-webkit-scrollbar-thumb {
   background-color: #c3c6d7;
   border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: #475569;
 }
 
 /* ── Design-system utilities ── */
@@ -94,4 +154,3 @@ input[type='range']::-moz-range-thumb {
   box-shadow: 0 1px 6px rgba(59,130,246,0.4);
   cursor: pointer;
 }
-

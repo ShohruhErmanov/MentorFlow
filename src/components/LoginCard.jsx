@@ -51,7 +51,7 @@ export default function LoginCard({
       initial="hidden"
       animate="visible"
       className="w-full max-w-[520px] bg-white rounded-[28px] shadow-auth-card border border-slate-200/80
-                 px-9 py-6 dark:bg-gray-900 dark:border-gray-700
+                 px-9 py-6 dark:bg-slate-800 dark:border-slate-700
                  max-h-[calc(100vh-40px)] overflow-y-auto"
       style={{ scrollbarWidth: 'none' }}
       role="main"
@@ -76,13 +76,13 @@ export default function LoginCard({
       <AnimatePresence>
         {rootError && (
           <motion.div
-            className="mb-4 flex items-center gap-2.5 bg-red-50 border border-red-200 rounded-xl px-3.5 py-2.5"
+            className="mb-4 flex items-center gap-2.5 bg-red-50 border border-red-200 dark:bg-red-500/10 dark:border-red-500/30 rounded-xl px-3.5 py-2.5"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             role="alert"
           >
-            <p className="text-xs font-medium text-red-600">{rootError.message}</p>
+            <p className="text-xs font-medium text-red-600 dark:text-red-400">{rootError.message}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -98,7 +98,7 @@ export default function LoginCard({
         <h1 className="text-[28px] font-bold text-heading tracking-tight leading-tight mb-1 dark:text-white">
           Tizimga kirish
         </h1>
-        <p className="text-sm text-body dark:text-gray-400">
+        <p className="text-sm text-body dark:text-slate-400">
           Hisobingizga kiring va ishlarni davom ettiring.
         </p>
       </motion.div>
@@ -199,9 +199,9 @@ export default function LoginCard({
         animate="visible"
         aria-hidden="true"
       >
-        <div className="flex-1 h-px bg-border dark:bg-gray-700" />
-        <span className="text-[11px] font-semibold text-body/60 tracking-widest uppercase px-1">Yoki</span>
-        <div className="flex-1 h-px bg-border dark:bg-gray-700" />
+        <div className="flex-1 h-px bg-border dark:bg-slate-700" />
+        <span className="text-[11px] font-semibold text-body/60 dark:text-slate-500 tracking-widest uppercase px-1">Yoki</span>
+        <div className="flex-1 h-px bg-border dark:bg-slate-700" />
       </motion.div>
 
       {/* ── Social buttons ── */}
@@ -218,7 +218,7 @@ export default function LoginCard({
 
       {/* ── Register link ── */}
       <motion.p
-        className="text-center text-sm text-body mt-4 dark:text-gray-400"
+        className="text-center text-sm text-body mt-4 dark:text-slate-400"
         custom={7}
         variants={fieldVariants}
         initial="hidden"
@@ -238,7 +238,7 @@ export default function LoginCard({
 
       {/* ── Footer ── */}
       <motion.div
-        className="mt-4 pt-3 border-t border-border/40 dark:border-gray-700"
+        className="mt-4 pt-3 border-t border-border/40 dark:border-slate-700"
         custom={8}
         variants={fieldVariants}
         initial="hidden"

@@ -8,7 +8,7 @@ const mockAssignments = [
     deadline: 'Bugun 23:59 da',
     status: 'Bajarilmoqda',
     icon: Code,
-    statusColor: 'bg-orange-50 text-orange-600',
+    statusColor: 'bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400',
     grade: null
   },
   {
@@ -18,7 +18,7 @@ const mockAssignments = [
     deadline: 'Kecha topshirildi',
     status: 'Tekshirilmoqda',
     icon: FileText,
-    statusColor: 'bg-gray-100 text-gray-600',
+    statusColor: 'bg-gray-100 text-gray-600 dark:bg-slate-700/40 dark:text-slate-300',
     grade: null
   },
   {
@@ -28,16 +28,16 @@ const mockAssignments = [
     deadline: 'Topshirilgan',
     status: 'Qabul qilindi',
     icon: CheckCircle,
-    statusColor: 'bg-emerald-50 text-emerald-600',
+    statusColor: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400',
     grade: 'Baho: 100/100 • Izoh: "Juda yaxshi yechim!"'
   }
 ];
 
 export default function AssignmentList() {
   return (
-    <div className="rounded-[24px] border border-[#e1e2ed] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+    <div className="rounded-[24px] border border-[#e1e2ed] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-8 flex items-center justify-between">
-        <h3 className="text-[22px] font-bold tracking-tight text-[#191b23]">Ushbu haftadagi topshiriqlar</h3>
+        <h3 className="text-[22px] font-bold tracking-tight text-[#191b23] dark:text-white">Ushbu haftadagi topshiriqlar</h3>
         <button className="flex items-center gap-1.5 text-[13px] font-bold text-[#2563eb] hover:text-blue-700">
           Barchasini ko'rish
           <ArrowRight size={16} />
@@ -50,21 +50,21 @@ export default function AssignmentList() {
           return (
             <div 
               key={assignment.id} 
-              className="flex items-center justify-between gap-4 rounded-[16px] border border-[#e1e2ed] p-5 transition-colors hover:border-[#2563eb] hover:bg-[#faf8ff] group"
+              className="flex items-center justify-between gap-4 rounded-[16px] border border-[#e1e2ed] p-5 transition-colors hover:border-[#2563eb] hover:bg-[#faf8ff] group dark:border-slate-700 dark:hover:bg-slate-700/40"
             >
               <div className="flex gap-4 min-w-0 flex-1">
-                <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-[12px] bg-[#f3f4f6] text-[#737686] group-hover:bg-white group-hover:text-[#2563eb] transition-colors shadow-sm">
+                <div className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-[12px] bg-[#f3f4f6] text-[#737686] group-hover:bg-white group-hover:text-[#2563eb] transition-colors shadow-sm dark:bg-slate-700 dark:text-slate-400 dark:group-hover:bg-slate-800">
                   <Icon size={20} />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-[15px] font-bold text-[#191b23] truncate">{assignment.title}</h4>
-                  <p className="mt-1 flex flex-wrap items-center gap-2 text-[13px] font-medium text-[#737686]">
+                  <h4 className="text-[15px] font-bold text-[#191b23] dark:text-white truncate">{assignment.title}</h4>
+                  <p className="mt-1 flex flex-wrap items-center gap-2 text-[13px] font-medium text-[#737686] dark:text-slate-400">
                     <span>{assignment.deadline}</span>
-                    <span className="h-1 w-1 rounded-full bg-gray-300"></span>
+                    <span className="h-1 w-1 rounded-full bg-gray-300 dark:bg-slate-600"></span>
                     <span>Modul: {assignment.module}</span>
                   </p>
                   {assignment.grade && (
-                    <p className="mt-2 text-[12px] font-bold text-[#059669]">
+                    <p className="mt-2 text-[12px] font-bold text-[#059669] dark:text-emerald-400">
                       {assignment.grade}
                     </p>
                   )}

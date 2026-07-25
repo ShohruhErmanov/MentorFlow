@@ -23,11 +23,11 @@ export default function Footer({ className = '' }) {
         {links.map((link, i) => (
           <span key={link.href} className="flex items-center gap-1.5">
             {i > 0 && (
-              <span className="text-body/30 text-xs select-none" aria-hidden="true">•</span>
+              <span className="text-body/30 dark:text-slate-600 text-xs select-none" aria-hidden="true">•</span>
             )}
             <a
               href={link.href}
-              className="text-xs text-body hover:text-primary transition-colors duration-150
+              className="text-xs text-body dark:text-slate-400 hover:text-primary transition-colors duration-150
                          hover:underline underline-offset-2 focus:outline-none
                          focus-visible:ring-2 focus-visible:ring-primary/30 rounded"
             >
@@ -38,7 +38,7 @@ export default function Footer({ className = '' }) {
       </nav>
 
       {/* Copyright */}
-      <p className="text-xs text-body/60">
+      <p className="text-xs text-body/60 dark:text-slate-500">
         © 2026 MentorFlow.{' '}
         <span className="whitespace-nowrap">All rights reserved.</span>
       </p>

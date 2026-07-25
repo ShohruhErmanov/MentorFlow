@@ -8,7 +8,7 @@ export default function ProgressIndicator({ value }) {
 
   return (
     <div className="flex items-center gap-3">
-      <div className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100">
+      <div className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${value}%` }}
@@ -16,7 +16,7 @@ export default function ProgressIndicator({ value }) {
           className={`h-full rounded-full ${color}`}
         />
       </div>
-      <span className="text-xs font-semibold text-[#191b23]">{value}%</span>
+      <span className="text-xs font-semibold text-[#191b23] dark:text-white">{value}%</span>
     </div>
   );
 }

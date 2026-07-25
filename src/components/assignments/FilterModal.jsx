@@ -23,14 +23,14 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
     width: '100%',
     padding: '10px 14px',
     fontSize: 14,
-    color: '#111827',
-    border: '1px solid #e5e7eb',
     borderRadius: 10,
-    background: '#ffffff',
     outline: 'none',
     cursor: 'pointer',
     transition: 'border-color 0.15s',
   };
+
+  const selectClass =
+    'border border-gray-200 bg-white text-gray-900 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-blue-500';
 
   const modal = (
     <AnimatePresence>
@@ -41,6 +41,7 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
+          className="bg-black/40 dark:bg-black/60"
           style={{
             position: 'fixed',
             inset: 0,
@@ -48,7 +49,6 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'rgba(0,0,0,0.4)',
             backdropFilter: 'blur(6px)',
             WebkitBackdropFilter: 'blur(6px)',
             padding: 16,
@@ -61,14 +61,13 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+            className="bg-white dark:bg-slate-800 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.6)]"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: 480,
               minWidth: 300,
-              backgroundColor: '#ffffff',
               borderRadius: 24,
-              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.25)',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
@@ -76,16 +75,15 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
             }}
           >
             {/* Header */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 28px 20px', borderBottom: '1px solid #f3f4f6', flexShrink: 0 }}>
-              <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: '#111827', display: 'flex', alignItems: 'center', gap: 8 }}>
-                <Filter size={18} color="#6b7280" />
+            <div className="border-b border-gray-100 dark:border-slate-700" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 28px 20px', flexShrink: 0 }}>
+              <h3 className="text-gray-900 dark:text-white" style={{ margin: 0, fontSize: 18, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Filter size={18} className="text-gray-500 dark:text-slate-400" />
                 Filtrlash
               </h3>
               <button
                 onClick={onClose}
-                style={{ padding: 8, background: 'transparent', border: 'none', borderRadius: 8, cursor: 'pointer', color: '#9ca3af', display: 'flex' }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = '#f3f4f6')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                className="text-gray-400 hover:bg-gray-100 dark:text-slate-500 dark:hover:bg-slate-700"
+                style={{ padding: 8, background: 'transparent', border: 'none', borderRadius: 8, cursor: 'pointer', display: 'flex' }}
               >
                 <X size={18} />
               </button>
@@ -95,13 +93,12 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
             <div style={{ padding: '24px 28px', overflowY: 'auto', flex: 1, display: 'flex', flexDirection: 'column', gap: 20 }}>
               {/* Status */}
               <div>
-                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#374151', marginBottom: 8 }}>Holat</label>
+                <label className="text-gray-700 dark:text-slate-300" style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>Holat</label>
                 <select
                   value={filters.status}
                   onChange={(e) => setFilters({ ...filters, status: e.target.value })}
                   style={selectStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#2563eb')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = '#e5e7eb')}
+                  className={selectClass}
                 >
                   <option value="">Barcha holatlar</option>
                   <option value="FAOL">Faol</option>
@@ -114,13 +111,12 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
 
               {/* Group */}
               <div>
-                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#374151', marginBottom: 8 }}>Guruh</label>
+                <label className="text-gray-700 dark:text-slate-300" style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>Guruh</label>
                 <select
                   value={filters.group}
                   onChange={(e) => setFilters({ ...filters, group: e.target.value })}
                   style={selectStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#2563eb')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = '#e5e7eb')}
+                  className={selectClass}
                 >
                   <option value="">Barcha guruhlar</option>
                   <option value="Frontend G1">Frontend G1</option>
@@ -137,13 +133,12 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
 
               {/* Difficulty */}
               <div>
-                <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#374151', marginBottom: 8 }}>Qiyinchilik</label>
+                <label className="text-gray-700 dark:text-slate-300" style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 8 }}>Qiyinchilik</label>
                 <select
                   value={filters.difficulty}
                   onChange={(e) => setFilters({ ...filters, difficulty: e.target.value })}
                   style={selectStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = '#2563eb')}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = '#e5e7eb')}
+                  className={selectClass}
                 >
                   <option value="">Barchasi</option>
                   <option value="Easy">Oson</option>
@@ -154,12 +149,11 @@ const FilterModal = ({ isOpen, onClose, filters, setFilters, onApply }) => {
             </div>
 
             {/* Footer */}
-            <div style={{ padding: '16px 28px 24px', background: '#f9fafb', borderTop: '1px solid #f3f4f6', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 10 }}>
+            <div className="bg-gray-50 border-t border-gray-100 dark:bg-slate-900/40 dark:border-slate-700" style={{ padding: '16px 28px 24px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 10 }}>
               <button
                 onClick={() => { setFilters({ status: '', group: '', difficulty: '' }); onApply(); }}
-                style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, color: '#374151', background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: 10, cursor: 'pointer', transition: 'background 0.15s' }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = '#f3f4f6')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = '#ffffff')}
+                className="text-gray-700 bg-white border border-gray-200 hover:bg-gray-100 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-600 dark:hover:bg-slate-700"
+                style={{ padding: '10px 20px', fontSize: 14, fontWeight: 500, borderRadius: 10, cursor: 'pointer', transition: 'background 0.15s' }}
               >
                 Tozalash
               </button>

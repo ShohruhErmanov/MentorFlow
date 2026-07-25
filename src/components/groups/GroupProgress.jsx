@@ -4,10 +4,10 @@ export default function GroupProgress({ progress }) {
   return (
     <div className="mt-5 space-y-2">
       <div className="flex items-center justify-between text-xs font-semibold">
-        <span className="text-[#191b23]">Kurs kursi</span>
+        <span className="text-[#191b23] dark:text-white">Kurs kursi</span>
         <span className="text-[#2563eb]">{progress}%</span>
       </div>
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#f3f3fe]">
+      <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#f3f3fe] dark:bg-slate-700">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}

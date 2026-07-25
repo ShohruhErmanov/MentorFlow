@@ -29,10 +29,10 @@ export default function GroupDropdown({ selectedGroup, setSelectedGroup }) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between gap-2 h-10 px-4 min-w-[160px] border border-gray-200 rounded-lg bg-white text-gray-700 hover:bg-gray-50 transition-colors text-sm font-medium"
+        className="flex items-center justify-between gap-2 h-10 px-4 min-w-[160px] border border-gray-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40 transition-colors text-sm font-medium"
       >
         <span className="truncate">{selectedGroup}</span>
-        <ChevronDown size={18} className={`text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={18} className={`text-gray-500 dark:text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -42,15 +42,15 @@ export default function GroupDropdown({ selectedGroup, setSelectedGroup }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full mt-1 left-0 w-full min-w-[160px] bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden z-10"
+            className="absolute top-full mt-1 left-0 w-full min-w-[160px] bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-lg rounded-lg overflow-hidden z-10"
           >
             {options.map((option) => (
               <button
                 key={option}
                 className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
                   selectedGroup === option
-                    ? 'bg-blue-50 text-blue-600 font-medium'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400 font-medium'
+                    : 'text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40'
                 }`}
                 onClick={() => {
                   setSelectedGroup(option);

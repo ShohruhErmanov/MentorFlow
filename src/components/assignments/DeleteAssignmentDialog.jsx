@@ -28,6 +28,7 @@ const DeleteAssignmentDialog = ({ isOpen, onClose, onConfirm, assignmentName }) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
+          className="bg-black/45 dark:bg-black/60"
           style={{
             position: 'fixed',
             inset: 0,
@@ -35,7 +36,6 @@ const DeleteAssignmentDialog = ({ isOpen, onClose, onConfirm, assignmentName }) 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'rgba(0,0,0,0.45)',
             backdropFilter: 'blur(6px)',
             WebkitBackdropFilter: 'blur(6px)',
             padding: 16,
@@ -48,53 +48,51 @@ const DeleteAssignmentDialog = ({ isOpen, onClose, onConfirm, assignmentName }) 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+            className="bg-white dark:bg-slate-800 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.28)] dark:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.6)]"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: 480,
               minWidth: 300,
-              backgroundColor: '#ffffff',
               borderRadius: 24,
-              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.28)',
               overflow: 'hidden',
             }}
           >
             {/* Body */}
             <div style={{ padding: '36px 32px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
               {/* Icon */}
-              <div style={{
-                width: 60, height: 60, borderRadius: '50%',
-                background: '#fef2f2',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                marginBottom: 20,
-              }}>
-                <AlertTriangle size={28} color="#dc2626" />
+              <div
+                className="bg-red-50 dark:bg-red-500/10"
+                style={{
+                  width: 60, height: 60, borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: 20,
+                }}
+              >
+                <AlertTriangle size={28} className="text-red-600 dark:text-red-400" />
               </div>
 
-              <h3 style={{ margin: '0 0 10px', fontSize: 20, fontWeight: 700, color: '#111827' }}>
+              <h3 className="text-gray-900 dark:text-white" style={{ margin: '0 0 10px', fontSize: 20, fontWeight: 700 }}>
                 Vazifani o'chirish
               </h3>
-              <p style={{ margin: '0 0 28px', fontSize: 14, color: '#6b7280', lineHeight: 1.6 }}>
+              <p className="text-gray-500 dark:text-slate-400" style={{ margin: '0 0 28px', fontSize: 14, lineHeight: 1.6 }}>
                 Siz haqiqatan ham{' '}
-                <strong style={{ color: '#374151' }}>"{assignmentName}"</strong>{' '}
+                <strong className="text-gray-700 dark:text-slate-200">"{assignmentName}"</strong>{' '}
                 vazifasini o'chirmoqchimisiz?{' '}
-                <span style={{ color: '#ef4444' }}>Bu amalni ortga qaytarib bo'lmaydi.</span>
+                <span className="text-red-500">Bu amalni ortga qaytarib bo'lmaydi.</span>
               </p>
 
               {/* Buttons */}
               <div style={{ display: 'flex', gap: 12, width: '100%' }}>
                 <button
                   onClick={onClose}
+                  className="text-gray-700 bg-gray-100 hover:bg-gray-200 dark:text-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600"
                   style={{
                     flex: 1, padding: '11px 20px',
                     fontSize: 14, fontWeight: 500,
-                    color: '#374151',
-                    background: '#f3f4f6',
                     border: 'none', borderRadius: 12,
                     cursor: 'pointer', transition: 'background 0.15s',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#e5e7eb')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = '#f3f4f6')}
                 >
                   Bekor qilish
                 </button>

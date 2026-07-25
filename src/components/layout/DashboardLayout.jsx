@@ -7,7 +7,7 @@ export default function DashboardLayout() {
   const { sidebarOpen, closeSidebar, toggleSidebar } = useDashboard();
 
   return (
-    <div className="min-h-dvh bg-[#faf8ff] text-[#191b23]">
+    <div className="min-h-dvh bg-[#faf8ff] text-[#191b23] dark:bg-slate-900 dark:text-white">
       <Sidebar open={sidebarOpen} onClose={closeSidebar} />
       <div className="min-h-dvh lg:pl-[280px]">
         <Header onMenuClick={toggleSidebar} />

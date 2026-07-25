@@ -24,7 +24,7 @@ export default function PasswordStrength({ password }) {
       <div className="flex gap-1" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={3}
            aria-label={`Parol kuchi: ${label}`}>
         {segments.map((s) => (
-          <div key={s} className="flex-1 h-1 rounded-full bg-slate-200 overflow-hidden">
+          <div key={s} className="flex-1 h-1 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
             <motion.div
               className={`h-full rounded-full ${s <= score ? color : 'bg-transparent'}`}
               initial={{ scaleX: 0 }}
@@ -38,7 +38,11 @@ export default function PasswordStrength({ password }) {
 
       {/* Label */}
       <p className={`text-[10px] font-semibold ${
-        score === 1 ? 'text-red-500' : score === 2 ? 'text-amber-500' : 'text-emerald-600'
+        score === 1
+          ? 'text-red-500 dark:text-red-400'
+          : score === 2
+            ? 'text-amber-500 dark:text-amber-400'
+            : 'text-emerald-600 dark:text-emerald-400'
       }`}>
         Parol kuchi: {label}
       </p>

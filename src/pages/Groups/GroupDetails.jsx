@@ -172,7 +172,7 @@ export default function GroupDetails() {
               />
             )}
             {activeTab !== 'students' && activeTab !== 'tasks' && (
-              <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-[#e1e2ed] bg-white">
+              <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-[#e1e2ed] bg-white dark:border-slate-700 dark:bg-slate-800">
                 <EmptyState
                   title="Hozircha bo'sh"
                   description="Bu bo'lim hali ishlab chiqilmoqda yoki ma'lumotlar yo'q."

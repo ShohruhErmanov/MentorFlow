@@ -34,12 +34,12 @@ export default function SubmittedAssignmentCard({
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg p-6 flex flex-col h-full relative"
+      className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg p-6 flex flex-col h-full relative"
     >
       <div className="absolute top-4 right-4" ref={menuRef}>
-        <button 
+        <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+          className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 dark:text-slate-500 hover:bg-gray-100 dark:hover:bg-slate-700/40 hover:text-gray-600 dark:hover:text-slate-300 transition-colors"
         >
           <MoreVertical size={18} />
         </button>
@@ -51,25 +51,25 @@ export default function SubmittedAssignmentCard({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -5 }}
               transition={{ duration: 0.15 }}
-              className="absolute right-0 mt-1 w-48 bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden z-[50] py-1"
+              className="absolute right-0 mt-1 w-48 bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)] rounded-xl overflow-hidden z-[50] py-1"
             >
               {isPending ? (
-                <button onClick={() => { goToReview(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2.5 transition-colors">
+                <button onClick={() => { goToReview(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40 flex items-center gap-2.5 transition-colors">
                   <FileCheck size={16} /> Tekshirish
                 </button>
               ) : (
-                <button onClick={() => { onPreview(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2.5 transition-colors">
+                <button onClick={() => { onPreview(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40 flex items-center gap-2.5 transition-colors">
                   <Eye size={16} /> Ko'rish
                 </button>
               )}
-              <button onClick={() => { onDownload(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2.5 transition-colors">
+              <button onClick={() => { onDownload(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40 flex items-center gap-2.5 transition-colors">
                 <Download size={16} /> Yuklab olish
               </button>
-              <button onClick={() => { onCopy(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2.5 transition-colors">
+              <button onClick={() => { onCopy(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700/40 flex items-center gap-2.5 transition-colors">
                 <Copy size={16} /> Nusxalash
               </button>
-              <div className="border-t border-gray-100 my-1"></div>
-              <button onClick={() => { onDelete(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 flex items-center gap-2.5 transition-colors">
+              <div className="border-t border-gray-100 dark:border-slate-700 my-1"></div>
+              <button onClick={() => { onDelete(); setMenuOpen(false); }} className="w-full text-left px-4 py-2.5 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 flex items-center gap-2.5 transition-colors">
                 <Trash2 size={16} /> O'chirish
               </button>
             </motion.div>
@@ -86,28 +86,28 @@ export default function SubmittedAssignmentCard({
           </div>
         )}
         <div>
-          <h3 className="font-bold text-gray-900 leading-tight">{assignment.studentName}</h3>
-          <p className="text-xs text-gray-500 mt-0.5">{assignment.group}</p>
+          <h3 className="font-bold text-gray-900 dark:text-white leading-tight">{assignment.studentName}</h3>
+          <p className="text-xs text-gray-500 dark:text-slate-400 mt-0.5">{assignment.group}</p>
         </div>
       </div>
 
       <div className="mb-4">
         {isPending ? (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-50 text-orange-600 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400 text-xs font-semibold">
             <Clock size={12} strokeWidth={2.5} /> Kutilmoqda
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-green-50 text-green-600 text-xs font-semibold">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400 text-xs font-semibold">
             <CheckCircle size={12} strokeWidth={2.5} /> Qabul qilindi
           </span>
         )}
       </div>
 
-      <h4 className="font-bold text-[17px] text-gray-900 mb-4 line-clamp-2 leading-snug flex-grow">
+      <h4 className="font-bold text-[17px] text-gray-900 dark:text-white mb-4 line-clamp-2 leading-snug flex-grow">
         {assignment.assignmentTitle}
       </h4>
 
-      <div className="flex items-center gap-2 text-xs text-gray-500 mb-6 font-medium">
+      <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 mb-6 font-medium">
         <Clock size={14} />
         {isPending ? `Yuborildi: ${assignment.submittedAt}` : `Tekshirildi: ${assignment.reviewedAt || assignment.submittedAt}`}
       </div>
@@ -123,11 +123,11 @@ export default function SubmittedAssignmentCard({
         ) : (
           <div className="flex items-center justify-between">
             <div className="font-bold text-blue-600 text-[17px]">
-              Baho: <span className="text-xl">{assignment.score}</span><span className="text-gray-400 text-sm">/100</span>
+              Baho: <span className="text-xl">{assignment.score}</span><span className="text-gray-400 dark:text-slate-500 text-sm">/100</span>
             </div>
             <button
               onClick={goToReview} // Added goToReview here for "Qayta ko'rish" based on user requirements.
-              className="h-10 px-5 bg-white border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition-colors text-sm"
+              className="h-10 px-5 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 font-medium rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700/40 transition-colors text-sm"
             >
               Qayta ko'rish
             </button>

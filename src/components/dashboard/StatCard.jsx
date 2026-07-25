@@ -4,32 +4,32 @@ import Card from '../ui/Card';
 
 const toneStyles = {
   blue: {
-    card: 'border-[#dbe1ff]',
-    iconWrap: 'bg-[#dbe1ff] text-[#2563eb]',
+    card: 'border-[#dbe1ff] dark:border-blue-500/30',
+    iconWrap: 'bg-[#dbe1ff] text-[#2563eb] dark:bg-blue-500/10 dark:text-blue-400',
     status: 'text-[#2563eb]',
     indicator: 'bg-[#2563eb]',
-    value: 'text-[#191b23]',
+    value: 'text-[#191b23] dark:text-white',
   },
   orange: {
-    card: 'border-[#ffdbcd]',
-    iconWrap: 'bg-[#ffede6] text-[#bc4800]',
-    status: 'text-[#bc4800]',
+    card: 'border-[#ffdbcd] dark:border-orange-500/30',
+    iconWrap: 'bg-[#ffede6] text-[#bc4800] dark:bg-orange-500/10 dark:text-orange-400',
+    status: 'text-[#bc4800] dark:text-orange-400',
     indicator: 'bg-[#bc4800]',
-    value: 'text-[#191b23]',
+    value: 'text-[#191b23] dark:text-white',
   },
   red: {
-    card: 'border-[#ffdad6] bg-[#fff8f7]',
-    iconWrap: 'bg-[#ffdad6] text-[#ba1a1a]',
-    status: 'text-[#ba1a1a]',
+    card: 'border-[#ffdad6] bg-[#fff8f7] dark:border-red-500/30 dark:bg-red-500/10',
+    iconWrap: 'bg-[#ffdad6] text-[#ba1a1a] dark:bg-red-500/10 dark:text-red-400',
+    status: 'text-[#ba1a1a] dark:text-red-400',
     indicator: 'bg-[#ba1a1a]',
-    value: 'text-[#ba1a1a]',
+    value: 'text-[#ba1a1a] dark:text-red-400',
   },
   green: {
-    card: 'border-[#d7eadc]',
-    iconWrap: 'bg-[#e8f6ed] text-[#20834a]',
-    status: 'text-[#20834a]',
+    card: 'border-[#d7eadc] dark:border-emerald-500/30',
+    iconWrap: 'bg-[#e8f6ed] text-[#20834a] dark:bg-emerald-500/10 dark:text-emerald-400',
+    status: 'text-[#20834a] dark:text-emerald-400',
     indicator: 'bg-[#20834a]',
-    value: 'text-[#191b23]',
+    value: 'text-[#191b23] dark:text-white',
   },
 };
 
@@ -46,7 +46,7 @@ export default function StatCard({ label, value, status, icon: Icon, tone = 'blu
       <div className={clsx('absolute left-0 top-5 h-10 w-1 rounded-r-full', styles.indicator)} />
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[13px] font-semibold leading-5 text-[#737686]">{label}</p>
+          <p className="text-[13px] font-semibold leading-5 text-[#737686] dark:text-slate-400">{label}</p>
           <div className="mt-5 flex items-end gap-2">
             <p className={clsx('text-[42px] font-bold leading-none tracking-[0]', styles.value)}>
               {value}

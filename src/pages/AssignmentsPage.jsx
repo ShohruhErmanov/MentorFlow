@@ -142,7 +142,7 @@ const AssignmentsPage = () => {
     >
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Vazifalar</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Vazifalar</h1>
       </div>
 
       {/* Toolbar */}
@@ -155,8 +155,8 @@ const AssignmentsPage = () => {
           onClick={() => setIsFilterOpen(true)}
           className={`flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium transition-colors ${
             Object.values(filters).some((f) => f)
-              ? 'border-blue-500 text-blue-600 bg-blue-50'
-              : 'border-gray-200 text-gray-700 bg-white hover:bg-gray-50'
+              ? 'border-blue-500 text-blue-600 bg-blue-50 dark:bg-blue-500/10'
+              : 'border-gray-200 text-gray-700 bg-white hover:bg-gray-50 dark:border-slate-700 dark:text-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700/40'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -170,7 +170,7 @@ const AssignmentsPage = () => {
       </div>
 
       {/* Main Table Card */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col dark:bg-slate-800 dark:border-slate-700">
         <AssignmentTable
           assignments={paginatedAssignments}
           isLoading={isLoading}

@@ -12,7 +12,7 @@ export default function SearchToolbar({ searchQuery, onSearchChange }) {
           onChange={(e) => onSearchChange(e.target.value)}
         />
       </div>
-      <Button variant="ghost" className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe]">
+      <Button variant="ghost" className="bg-white border border-[#e1e2ed] hover:border-[#2563eb] hover:bg-[#f3f3fe] dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700/40">
         <Filter size={18} />
         <span>Filtr</span>
       </Button>

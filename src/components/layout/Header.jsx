@@ -5,7 +5,7 @@ import SearchInput from '../ui/SearchInput';
 
 export default function Header({ onMenuClick }) {
   return (
-    <header className="sticky top-0 z-30 h-[72px] border-b border-[#e1e2ed] bg-white/92 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 h-[72px] border-b border-[#e1e2ed] bg-white/92 backdrop-blur-xl dark:border-slate-800 dark:bg-gray-900/92">
       <div className="flex h-full items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Button
           variant="icon"

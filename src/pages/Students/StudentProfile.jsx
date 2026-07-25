@@ -52,17 +52,17 @@ export default function StudentProfile() {
       <div className="mb-6">
         <Link 
           to="/mentor/students" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#737686] hover:text-[#2563eb] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#737686] dark:text-slate-400 hover:text-[#2563eb] transition-colors"
         >
           <ArrowLeft size={16} />
           Ortga
         </Link>
-        <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[#737686]">
+        <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[#737686] dark:text-slate-400">
           <Link to="/mentor/students" className="hover:text-[#2563eb] transition-colors">
             O'quvchilar
           </Link>
-          <span className="text-[#e1e2ed]">&gt;</span>
-          <span className="text-[#191b23]">{student.name}</span>
+          <span className="text-[#e1e2ed] dark:text-slate-700">&gt;</span>
+          <span className="text-[#191b23] dark:text-white">{student.name}</span>
         </div>
       </div>
 

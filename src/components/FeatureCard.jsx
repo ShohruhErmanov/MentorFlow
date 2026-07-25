@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 export default function FeatureCard({ icon, title, description, delay = 0 }) {
   return (
     <motion.div
-      className="flex items-center gap-3 bg-white border border-border
+      className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-border dark:border-slate-700
                  px-4 py-3 cursor-default select-none min-h-[72px]"
       style={{ borderRadius: '20px', boxShadow: '0 2px 8px -2px rgba(0,74,198,0.08), 0 1px 3px -1px rgba(0,0,0,0.04)' }}
       initial={{ opacity: 0, x: -16 }}
@@ -33,9 +33,9 @@ export default function FeatureCard({ icon, title, description, delay = 0 }) {
 
       {/* Text */}
       <div className="flex flex-col min-w-0">
-        <span className="text-[13px] font-semibold text-heading truncate leading-tight">{title}</span>
+        <span className="text-[13px] font-semibold text-heading dark:text-white truncate leading-tight">{title}</span>
         {description && (
-          <span className="text-[11px] text-body mt-0.5 truncate">{description}</span>
+          <span className="text-[11px] text-body dark:text-slate-400 mt-0.5 truncate">{description}</span>
         )}
       </div>
 

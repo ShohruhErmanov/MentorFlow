@@ -4,9 +4,9 @@ const variants = {
   primary:
     'bg-[#2563eb] text-white shadow-[0_10px_24px_rgba(37,99,235,0.22)] hover:bg-[#1d4ed8] focus-visible:ring-[#2563eb]',
   ghost:
-    'bg-transparent text-[#434655] hover:bg-[#f3f3fe] focus-visible:ring-[#2563eb]',
+    'bg-transparent text-[#434655] hover:bg-[#f3f3fe] focus-visible:ring-[#2563eb] dark:text-slate-300 dark:hover:bg-slate-700/50',
   icon:
-    'bg-transparent text-[#434655] hover:bg-[#f3f3fe] focus-visible:ring-[#2563eb]',
+    'bg-transparent text-[#434655] hover:bg-[#f3f3fe] focus-visible:ring-[#2563eb] dark:text-slate-300 dark:hover:bg-slate-700/50',
 };
 
 const sizes = {

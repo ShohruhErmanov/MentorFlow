@@ -11,21 +11,23 @@ const RemoveResourceDialog = ({ isOpen, onClose, onConfirm, resourceName }) => {
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)' }}
+          className="bg-black/40 dark:bg-black/60"
+          style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(4px)' }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}
-            style={{ width: 400, background: '#fff', padding: 24, borderRadius: 20, textAlign: 'center', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.2)' }}
+            className="bg-white dark:bg-slate-800 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)]"
+            style={{ width: 400, padding: 24, borderRadius: 20, textAlign: 'center' }}
           >
-            <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#fef2f2', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-              <AlertTriangle size={24} color="#dc2626" />
+            <div className="bg-red-50 dark:bg-red-500/10" style={{ width: 56, height: 56, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <AlertTriangle size={24} className="text-red-600 dark:text-red-400" />
             </div>
-            <h3 style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 700, color: '#111827' }}>Biriktirmani o'chirish</h3>
-            <p style={{ margin: '0 0 24px', fontSize: 14, color: '#6b7280' }}>
+            <h3 className="text-gray-900 dark:text-white" style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 700 }}>Biriktirmani o'chirish</h3>
+            <p className="text-gray-500 dark:text-slate-400" style={{ margin: '0 0 24px', fontSize: 14 }}>
               Siz haqiqatan ham <strong>{resourceName}</strong> materialini o'chirmoqchimisiz?
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
-              <button onClick={onClose} style={{ flex: 1, padding: '10px', borderRadius: 10, background: '#f3f4f6', border: 'none', fontWeight: 500, cursor: 'pointer', color: '#374151' }}>Bekor qilish</button>
+              <button onClick={onClose} className="bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600" style={{ flex: 1, padding: '10px', borderRadius: 10, border: 'none', fontWeight: 500, cursor: 'pointer' }}>Bekor qilish</button>
               <button onClick={onConfirm} style={{ flex: 1, padding: '10px', borderRadius: 10, background: '#dc2626', border: 'none', fontWeight: 600, color: '#fff', cursor: 'pointer' }}>O'chirish</button>
             </div>
           </motion.div>
@@ -82,11 +84,11 @@ const LearningResources = ({ resources, setResources }) => {
   const videoValidator = (url) => url.startsWith('https://youtube.com/') || url.startsWith('https://youtu.be/') || url.startsWith('https://drive.google.com/');
 
   return (
-    <div style={{ marginTop: 24, paddingTop: 24, borderTop: '1px solid #f3f4f6' }}>
-      <h3 style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 600, color: '#111827' }}>
+    <div className="border-t border-gray-100 dark:border-slate-700" style={{ marginTop: 24, paddingTop: 24 }}>
+      <h3 className="text-gray-900 dark:text-white" style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 600 }}>
         Qo'shimcha materiallar biriktirish
       </h3>
-      <p style={{ margin: '0 0 20px', fontSize: 13, color: '#6b7280' }}>
+      <p className="text-gray-500 dark:text-slate-400" style={{ margin: '0 0 20px', fontSize: 13 }}>
         Fayllar, havolalar yoki video darsliklarni qo'shing.
       </p>
 
@@ -99,8 +101,8 @@ const LearningResources = ({ resources, setResources }) => {
             icon={FileText}
             title="PDF yuklash"
             description="Topshiriq uchun PDF fayl biriktirish."
-            iconColor="#dc2626"
-            iconBg="#fef2f2"
+            iconColorClass="text-red-600 dark:text-red-400"
+            iconBgClass="bg-red-50 dark:bg-red-500/10"
             isConnected={!!resources.pdf}
             onAdd={() => fileInputRef.current?.click()}
             onEdit={() => fileInputRef.current?.click()}
@@ -123,8 +125,8 @@ const LearningResources = ({ resources, setResources }) => {
             icon={Figma}
             title="Figma havola"
             description="Dizayn maketlari uchun havola."
-            iconColor="#db2777"
-            iconBg="#fce7f3"
+            iconColorClass="text-pink-600 dark:text-pink-400"
+            iconBgClass="bg-pink-50 dark:bg-pink-500/10"
             isConnected={!!resources.figma}
             onAdd={() => setActiveModal('figma')}
             onEdit={() => setActiveModal('figma')}
@@ -140,8 +142,8 @@ const LearningResources = ({ resources, setResources }) => {
             icon={Github}
             title="GitHub Repo"
             description="Boshlang'ich kod yoki namunalar."
-            iconColor="#111827"
-            iconBg="#f3f4f6"
+            iconColorClass="text-gray-900 dark:text-slate-300"
+            iconBgClass="bg-gray-100 dark:bg-slate-700"
             isConnected={!!resources.github}
             onAdd={() => setActiveModal('github')}
             onEdit={() => setActiveModal('github')}
@@ -157,8 +159,8 @@ const LearningResources = ({ resources, setResources }) => {
             icon={Youtube}
             title="Video dars"
             description="Tushuntirish yoki darslik videosi."
-            iconColor="#ea580c"
-            iconBg="#ffedd5"
+            iconColorClass="text-orange-600 dark:text-orange-400"
+            iconBgClass="bg-orange-50 dark:bg-orange-500/10"
             isConnected={!!resources.video}
             onAdd={() => setActiveModal('video')}
             onEdit={() => setActiveModal('video')}

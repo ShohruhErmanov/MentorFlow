@@ -45,48 +45,48 @@ export default function EditStudentModal({ isOpen, onClose, onSave, student }) {
     <Modal isOpen={isOpen} onClose={onClose} title="O'quvchi ma'lumotlarini tahrirlash">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#434655]">F.I.O</label>
+          <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-300">F.I.O</label>
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb]"
+            className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] dark:bg-slate-800 dark:text-white dark:border-slate-600 dark:placeholder:text-slate-500"
           />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Telefon</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-300">Telefon</label>
             <input
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] dark:bg-slate-800 dark:text-white dark:border-slate-600 dark:placeholder:text-slate-500"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Email</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-300">Email</label>
             <input
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] px-3 py-2 text-sm outline-none focus:border-[#2563eb] dark:bg-slate-800 dark:text-white dark:border-slate-600 dark:placeholder:text-slate-500"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Guruh</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-300">Guruh</label>
             <select
               name="group"
               value={formData.group}
               onChange={handleChange}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] dark:bg-slate-800 dark:text-white dark:border-slate-600"
             >
               <option value="Frontend-019">Frontend-019</option>
               <option value="Backend-001">Backend-001</option>
@@ -95,12 +95,12 @@ export default function EditStudentModal({ isOpen, onClose, onSave, student }) {
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#434655]">Holati</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#434655] dark:text-slate-300">Holati</label>
             <select
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb]"
+              className="w-full rounded-lg border border-[#e1e2ed] bg-white px-3 py-2 text-sm outline-none focus:border-[#2563eb] dark:bg-slate-800 dark:text-white dark:border-slate-600"
             >
               <option value="Faol">Faol</option>
               <option value="Kutish">Kutish</option>
@@ -110,7 +110,7 @@ export default function EditStudentModal({ isOpen, onClose, onSave, student }) {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed]">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] dark:border-slate-700">
           <Button variant="ghost" type="button" onClick={onClose} disabled={isSubmitting}>Bekor qilish</Button>
           <LoadingButton variant="primary" type="submit" isLoading={isSubmitting} loadingText="Saqlanmoqda...">
             Saqlash

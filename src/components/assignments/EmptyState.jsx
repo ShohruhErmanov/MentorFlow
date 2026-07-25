@@ -3,11 +3,11 @@ import React from 'react';
 const EmptyState = ({ onAdd }) => {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
-      <div className="w-48 h-48 mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+      <div className="w-48 h-48 mb-6 bg-gray-100 rounded-full flex items-center justify-center dark:bg-slate-700">
          <img src="https://illustrations.popsy.co/blue/surreal-hourglass.svg" alt="Empty" className="w-32 h-32 opacity-75" />
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">Vazifalar topilmadi</h3>
-      <p className="text-gray-500 max-w-sm mb-6">Hozircha hech qanday vazifa qo'shilmagan. Yangi vazifa yaratish uchun quyidagi tugmani bosing.</p>
+      <h3 className="text-xl font-bold text-gray-900 mb-2 dark:text-white">Vazifalar topilmadi</h3>
+      <p className="text-gray-500 max-w-sm mb-6 dark:text-slate-400">Hozircha hech qanday vazifa qo'shilmagan. Yangi vazifa yaratish uchun quyidagi tugmani bosing.</p>
       
       <button 
         onClick={onAdd}

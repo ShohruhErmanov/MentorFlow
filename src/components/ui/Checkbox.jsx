@@ -27,7 +27,7 @@ const Checkbox = forwardRef(function Checkbox(
 
       {/* Custom checkbox visual */}
       <div
-        className="relative w-[18px] h-[18px] rounded-[5px] border-2 border-border bg-white
+        className="relative w-[18px] h-[18px] rounded-[5px] border-2 border-border bg-white dark:border-slate-600 dark:bg-slate-800
                    transition-all duration-200
                    peer-checked:bg-primary peer-checked:border-primary
                    peer-focus-visible:ring-2 peer-focus-visible:ring-primary/30 peer-focus-visible:ring-offset-1

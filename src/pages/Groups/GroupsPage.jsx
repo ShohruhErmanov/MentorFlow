@@ -64,8 +64,8 @@ export default function GroupsPage() {
       className="p-4 sm:p-6 lg:p-8"
     >
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#191b23] lg:text-3xl">Guruhlar</h1>
-        <p className="mt-1 text-sm font-medium text-[#737686]">Barcha faol o'quv guruhlari ro'yxati</p>
+        <h1 className="text-2xl font-bold text-[#191b23] dark:text-white lg:text-3xl">Guruhlar</h1>
+        <p className="mt-1 text-sm font-medium text-[#737686] dark:text-slate-400">Barcha faol o'quv guruhlari ro'yxati</p>
       </div>
 
       <div className="mb-6 space-y-4">

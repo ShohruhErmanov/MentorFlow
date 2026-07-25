@@ -16,8 +16,8 @@ function Brand() {
     <div className="flex items-center gap-3">
       <LogoMark />
       <div>
-        <p className="text-[20px] font-bold leading-6 text-[#191b23]">MentorFlow</p>
-        <p className="mt-0.5 text-xs font-medium leading-4 text-[#737686]">Mentor Dashboard</p>
+        <p className="text-[20px] font-bold leading-6 text-[#191b23] dark:text-white">MentorFlow</p>
+        <p className="mt-0.5 text-xs font-medium leading-4 text-[#737686] dark:text-slate-400">Mentor Dashboard</p>
       </div>
     </div>
   );
@@ -33,8 +33,8 @@ function NavigationItem({ item }) {
         clsx(
           'group flex h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold transition-colors',
           isActive
-            ? 'bg-[#dbe1ff] text-[#003ea8] shadow-[inset_3px_0_0_#2563eb]'
-            : 'text-[#434655] hover:bg-[#f3f3fe] hover:text-[#191b23]',
+            ? 'bg-[#dbe1ff] text-[#003ea8] shadow-[inset_3px_0_0_#2563eb] dark:bg-blue-500/15 dark:text-blue-300 dark:shadow-[inset_3px_0_0_#3b82f6]'
+            : 'text-[#434655] hover:bg-[#f3f3fe] hover:text-[#191b23] dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white',
         )
       }
     >
@@ -49,7 +49,7 @@ export default function Sidebar({ open = false, onClose }) {
     <>
       <div
         className={clsx(
-          'fixed inset-0 z-40 bg-[#191b23]/35 backdrop-blur-sm transition-opacity lg:hidden',
+          'fixed inset-0 z-40 bg-[#191b23]/35 backdrop-blur-sm transition-opacity lg:hidden dark:bg-black/60',
           open ? 'opacity-100' : 'pointer-events-none opacity-0',
         )}
         aria-hidden="true"
@@ -58,7 +58,7 @@ export default function Sidebar({ open = false, onClose }) {
 
       <aside
         className={clsx(
-          'fixed left-0 top-0 z-50 flex h-dvh w-[280px] flex-col border-r border-[#e1e2ed] bg-white transition-transform duration-300 lg:translate-x-0',
+          'fixed left-0 top-0 z-50 flex h-dvh w-[280px] flex-col border-r border-[#e1e2ed] bg-white transition-transform duration-300 lg:translate-x-0 dark:border-slate-800 dark:bg-gray-900',
           open ? 'translate-x-0' : '-translate-x-full',
         )}
         aria-label="Mentor navigatsiyasi"
@@ -68,7 +68,7 @@ export default function Sidebar({ open = false, onClose }) {
             <Brand />
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#434655] hover:bg-[#f3f3fe] lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[#434655] hover:bg-[#f3f3fe] lg:hidden dark:text-slate-400 dark:hover:bg-slate-800"
               onClick={onClose}
               aria-label="Menyuni yopish"
             >
@@ -86,10 +86,10 @@ export default function Sidebar({ open = false, onClose }) {
             </ul>
           </nav>
 
-          <div className="border-t border-[#e1e2ed] pt-4">
+          <div className="border-t border-[#e1e2ed] pt-4 dark:border-slate-800">
             <NavLink
               to="/mentor/profile"
-              className="flex h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-[#434655] transition-colors hover:bg-[#f3f3fe] hover:text-[#191b23]"
+              className="flex h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-[#434655] transition-colors hover:bg-[#f3f3fe] hover:text-[#191b23] dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
             >
               <UserRound size={20} strokeWidth={2.1} aria-hidden="true" />
               Profil

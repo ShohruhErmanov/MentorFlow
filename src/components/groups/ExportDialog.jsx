@@ -28,7 +28,7 @@ export default function ExportDialog({ isOpen, onClose, onExport }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Ma'lumotlarni yuklab olish (Export)">
       <div className="space-y-4">
-        <p className="text-sm text-[#737686] mb-4">
+        <p className="text-sm text-[#737686] dark:text-slate-400 mb-4">
           Qaysi formatda yuklab olishni xohlaysiz? O'zingizga qulay formatni tanlang.
         </p>
 
@@ -39,26 +39,26 @@ export default function ExportDialog({ isOpen, onClose, onExport }) {
               onClick={() => setFormat(opt.id)}
               className={clsx(
                 "flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-200",
-                format === opt.id 
-                  ? "border-[#2563eb] bg-[#f3f3fe] shadow-sm ring-1 ring-[#2563eb]" 
-                  : "border-[#e1e2ed] bg-white hover:border-[#2563eb]/50 hover:bg-gray-50"
+                format === opt.id
+                  ? "border-[#2563eb] bg-[#f3f3fe] shadow-sm ring-1 ring-[#2563eb] dark:bg-blue-500/10"
+                  : "border-[#e1e2ed] bg-white hover:border-[#2563eb]/50 hover:bg-gray-50 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700/40"
               )}
             >
               <div className={clsx(
                 "flex h-10 w-10 items-center justify-center rounded-lg",
-                format === opt.id ? "bg-[#2563eb] text-white" : "bg-gray-100 text-[#737686]"
+                format === opt.id ? "bg-[#2563eb] text-white" : "bg-gray-100 text-[#737686] dark:bg-slate-700 dark:text-slate-400"
               )}>
                 <opt.icon size={20} />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#191b23]">{opt.label}</h4>
-                <p className="text-xs font-medium text-[#737686]">{opt.desc}</p>
+                <h4 className="text-sm font-bold text-[#191b23] dark:text-white">{opt.label}</h4>
+                <p className="text-xs font-medium text-[#737686] dark:text-slate-400">{opt.desc}</p>
               </div>
             </button>
           ))}
         </div>
 
-        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed]">
+        <div className="mt-6 flex justify-end gap-3 pt-4 border-t border-[#e1e2ed] dark:border-slate-700">
           <Button variant="ghost" onClick={onClose} disabled={isExporting}>Bekor qilish</Button>
           <LoadingButton 
             variant="primary" 

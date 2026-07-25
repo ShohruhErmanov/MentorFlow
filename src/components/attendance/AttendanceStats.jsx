@@ -13,12 +13,12 @@ const toneStyles = {
     icon: 'bg-white/20 text-white',
   },
   red: {
-    card: 'bg-white border border-gray-100',
-    icon: 'bg-red-50 text-red-500',
+    card: 'bg-white border border-gray-100 dark:bg-slate-800 dark:border-slate-700',
+    icon: 'bg-red-50 text-red-500 dark:bg-red-500/10 dark:text-red-400',
   },
   orange: {
-    card: 'bg-white border border-gray-100',
-    icon: 'bg-orange-50 text-orange-500',
+    card: 'bg-white border border-gray-100 dark:bg-slate-800 dark:border-slate-700',
+    icon: 'bg-orange-50 text-orange-500 dark:bg-orange-500/10 dark:text-orange-400',
   },
 };
 
@@ -54,21 +54,21 @@ export default function AttendanceStats({ stats }) {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className={`text-xs font-semibold tracking-wide uppercase ${isBlue ? 'text-blue-100' : 'text-gray-400'}`}>
+                <p className={`text-xs font-semibold tracking-wide uppercase ${isBlue ? 'text-blue-100' : 'text-gray-400 dark:text-slate-500'}`}>
                   {stat.label}
                 </p>
                 <div className="mt-2 flex items-baseline gap-1.5">
-                  <span className={`text-3xl font-extrabold leading-none ${isBlue ? '' : 'text-gray-900'}`}>
+                  <span className={`text-3xl font-extrabold leading-none ${isBlue ? '' : 'text-gray-900 dark:text-white'}`}>
                     {stat.value}
                   </span>
                   {stat.extra && (
-                    <span className={`text-sm font-medium ${isBlue ? 'text-blue-200' : 'text-gray-400'}`}>
+                    <span className={`text-sm font-medium ${isBlue ? 'text-blue-200' : 'text-gray-400 dark:text-slate-500'}`}>
                       {stat.extra}
                     </span>
                   )}
                 </div>
                 {stat.trend && (
-                  <span className={`mt-2 inline-flex items-center gap-1 text-xs font-semibold ${isBlue ? 'text-blue-100' : 'text-emerald-600'}`}>
+                  <span className={`mt-2 inline-flex items-center gap-1 text-xs font-semibold ${isBlue ? 'text-blue-100' : 'text-emerald-600 dark:text-emerald-400'}`}>
                     <TrendingUp size={12} />
                     {stat.trend}
                   </span>

@@ -83,13 +83,13 @@ const InputField = forwardRef(function InputField(
             'placeholder:text-gray-400 outline-none',
             'transition-all duration-200',
             'focus:ring-2 focus:ring-primary/20 focus:border-primary',
-            'dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500',
+            'dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500',
             LeftIcon ? 'pl-10' : 'pl-4',
             showPasswordToggle || hasError ? 'pr-10' : 'pr-4',
             hasError
-              ? 'border-red-400 ring-2 ring-red-400/15 focus:border-red-400 focus:ring-red-400/20'
-              : 'border-border hover:border-slate-300 dark:border-gray-600',
-            disabled ? 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-gray-900' : '',
+              ? 'border-red-400 ring-2 ring-red-400/15 focus:border-red-400 focus:ring-red-400/20 dark:border-red-500/60'
+              : 'border-border hover:border-slate-300 dark:border-slate-600 dark:hover:border-slate-500',
+            disabled ? 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-slate-900' : '',
           ].join(' ')}
           {...rest}
         />

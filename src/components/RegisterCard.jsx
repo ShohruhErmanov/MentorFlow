@@ -46,7 +46,7 @@ export default function RegisterCard({
       initial="hidden"
       animate="visible"
       className="w-full max-w-[520px] bg-white rounded-[28px] shadow-auth-card border border-slate-200/80
-                 dark:bg-gray-900 dark:border-gray-700 overflow-y-auto
+                 dark:bg-slate-800 dark:border-slate-700 overflow-y-auto
                  max-h-[calc(100vh-32px)]"
       style={{ scrollbarWidth: 'none' }}
       role="main"
@@ -59,12 +59,12 @@ export default function RegisterCard({
         <AnimatePresence>
           {isSuccess && (
             <motion.div
-              className="mb-4 flex items-center gap-2.5 bg-emerald-50 border border-emerald-200 rounded-xl px-3.5 py-2.5"
+              className="mb-4 flex items-center gap-2.5 bg-emerald-50 border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30 rounded-xl px-3.5 py-2.5"
               initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }} role="alert"
             >
-              <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0" />
-              <p className="text-xs font-medium text-emerald-700">
+              <CheckCircle2 size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+              <p className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
                 Muvaffaqiyatli ro'yxatdan o'tdingiz! Yo'naltirilmoqda...
               </p>
             </motion.div>
@@ -75,11 +75,11 @@ export default function RegisterCard({
         <AnimatePresence>
           {rootError && (
             <motion.div
-              className="mb-4 flex items-center gap-2.5 bg-red-50 border border-red-200 rounded-xl px-3.5 py-2.5"
+              className="mb-4 flex items-center gap-2.5 bg-red-50 border border-red-200 dark:bg-red-500/10 dark:border-red-500/30 rounded-xl px-3.5 py-2.5"
               initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }} role="alert"
             >
-              <p className="text-xs font-medium text-red-600">{rootError.message}</p>
+              <p className="text-xs font-medium text-red-600 dark:text-red-400">{rootError.message}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -89,7 +89,7 @@ export default function RegisterCard({
           <h1 className="text-[28px] font-bold text-heading tracking-tight leading-tight dark:text-white">
             Ro'yxatdan o'tish
           </h1>
-          <p className="text-sm text-body mt-1">
+          <p className="text-sm text-body dark:text-slate-400 mt-1">
             Yangi akkaunt yarating va platformadan foydalanishni boshlang.
           </p>
         </motion.div>
@@ -189,50 +189,27 @@ export default function RegisterCard({
 
           {/* Row 5: Terms checkbox */}
           <motion.div variants={row(5)} initial="hidden" animate="visible">
-            <label className="flex items-start gap-2.5 cursor-pointer group select-none">
-              <input
-                type="checkbox"
-                className="sr-only peer"
-                disabled={isLoading || isSuccess}
-                {...register('agreeToTerms')}
-              />
-              {/* Custom checkbox */}
-              <div
-                className="relative mt-0.5 w-[18px] h-[18px] flex-shrink-0 rounded-[5px] border-2 border-slate-300
-                            bg-white transition-all duration-200
-                            peer-checked:bg-primary peer-checked:border-primary
-                            peer-focus-visible:ring-2 peer-focus-visible:ring-primary/30
-                            group-hover:border-primary/60"
-                aria-hidden="true"
-              >
-                <motion.svg
-                  viewBox="0 0 10 8" fill="none"
-                  className="absolute inset-0 m-auto w-3 h-2.5"
-                >
-                  <motion.path
-                    d="M1 4L3.5 6.5L9 1"
-                    stroke="white" strokeWidth="1.8"
-                    strokeLinecap="round" strokeLinejoin="round"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: agreeToTerms ? 1 : 0, opacity: agreeToTerms ? 1 : 0 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                  />
-                </motion.svg>
-              </div>
-              <span className="text-xs leading-relaxed text-body group-hover:text-heading transition-colors">
-                Men{' '}
-                <a href="#terms" className="font-semibold text-primary hover:underline underline-offset-2">
-                  foydalanish shartlari
-                </a>
-                {' '}va{' '}
-                <a href="#privacy" className="font-semibold text-primary hover:underline underline-offset-2">
-                  maxfiylik siyosati
-                </a>
-                ga roziman.
-              </span>
-            </label>
+            <Checkbox
+              id="agreeToTerms"
+              disabled={isLoading || isSuccess}
+              checked={agreeToTerms}
+              label={(
+                <>
+                  Men{' '}
+                  <a href="#terms" className="font-semibold text-primary hover:underline underline-offset-2">
+                    foydalanish shartlari
+                  </a>
+                  {' '}va{' '}
+                  <a href="#privacy" className="font-semibold text-primary hover:underline underline-offset-2">
+                    maxfiylik siyosati
+                  </a>
+                  ga roziman.
+                </>
+              )}
+              {...register('agreeToTerms')}
+            />
             {errors.agreeToTerms && (
-              <p className="text-[10px] font-medium text-red-500 mt-1 flex items-center gap-1">
+              <p className="text-[10px] font-medium text-red-500 dark:text-red-400 mt-1 flex items-center gap-1">
                 {errors.agreeToTerms.message}
               </p>
             )}
@@ -286,9 +263,9 @@ export default function RegisterCard({
           variants={row(7)} initial="hidden" animate="visible"
           aria-hidden="true"
         >
-          <div className="flex-1 h-px bg-border dark:bg-gray-700" />
-          <span className="text-[11px] font-semibold text-body/60 tracking-widest uppercase px-1">Yoki</span>
-          <div className="flex-1 h-px bg-border dark:bg-gray-700" />
+          <div className="flex-1 h-px bg-border dark:bg-slate-700" />
+          <span className="text-[11px] font-semibold text-body/60 dark:text-slate-500 tracking-widest uppercase px-1">Yoki</span>
+          <div className="flex-1 h-px bg-border dark:bg-slate-700" />
         </motion.div>
 
         {/* ── Social buttons ── */}
@@ -299,7 +276,7 @@ export default function RegisterCard({
 
         {/* ── Login link ── */}
         <motion.p
-          className="text-center text-sm text-body mt-4 dark:text-gray-400"
+          className="text-center text-sm text-body mt-4 dark:text-slate-400"
           variants={row(9)} initial="hidden" animate="visible"
         >
           Akkauntingiz bormi?{' '}
@@ -315,7 +292,7 @@ export default function RegisterCard({
 
         {/* ── Footer ── */}
         <motion.div
-          className="mt-4 pt-3 border-t border-border/40 dark:border-gray-700"
+          className="mt-4 pt-3 border-t border-border/40 dark:border-slate-700"
           variants={row(10)} initial="hidden" animate="visible"
         >
           <Footer />

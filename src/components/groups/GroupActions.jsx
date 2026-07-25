@@ -14,11 +14,11 @@ export default function GroupActions({ searchQuery, onSearchChange, onCreateClic
       </div>
       
       <div className="flex items-center gap-3">
-        <Button variant="ghost" className="border border-[#e1e2ed] text-sm" onClick={onImportClick}>
+        <Button variant="ghost" className="border border-[#e1e2ed] dark:border-slate-700 text-sm" onClick={onImportClick}>
           <Upload size={16} />
           Import
         </Button>
-        <Button variant="ghost" className="border border-[#e1e2ed] text-sm" onClick={onExportClick}>
+        <Button variant="ghost" className="border border-[#e1e2ed] dark:border-slate-700 text-sm" onClick={onExportClick}>
           <Download size={16} />
           Export
         </Button>

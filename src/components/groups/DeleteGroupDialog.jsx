@@ -6,15 +6,15 @@ export default function DeleteGroupDialog({ isOpen, onClose, onConfirm, groupNam
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Guruhni o'chirish">
       <div className="flex flex-col items-center text-center">
-        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-500/10 dark:text-red-400">
           <AlertTriangle size={28} />
         </div>
-        <h3 className="mb-2 text-lg font-bold text-[#191b23]">Haqiqatan ham o'chirmoqchimisiz?</h3>
-        <p className="mb-6 text-sm font-medium text-[#737686]">
-          Siz haqiqatan ham <strong className="text-[#191b23]">{groupName}</strong> guruhini o'chirmoqchimisiz? Bu amalni ortga qaytarib bo'lmaydi.
+        <h3 className="mb-2 text-lg font-bold text-[#191b23] dark:text-white">Haqiqatan ham o'chirmoqchimisiz?</h3>
+        <p className="mb-6 text-sm font-medium text-[#737686] dark:text-slate-400">
+          Siz haqiqatan ham <strong className="text-[#191b23] dark:text-white">{groupName}</strong> guruhini o'chirmoqchimisiz? Bu amalni ortga qaytarib bo'lmaydi.
         </p>
         <div className="flex w-full gap-3">
-          <Button variant="ghost" className="flex-1 border border-[#e1e2ed]" onClick={onClose}>
+          <Button variant="ghost" className="flex-1 border border-[#e1e2ed] dark:border-slate-700" onClick={onClose}>
             Bekor qilish
           </Button>
           <Button

@@ -17,17 +17,17 @@ const AssignmentTable = ({ assignments, isLoading, onView, onEdit, onDuplicate, 
     <div className="w-full overflow-x-auto">
       <div className="min-w-[900px]">
         {/* Table Header */}
-        <div className="grid grid-cols-[minmax(250px,1fr)_120px_150px_150px_100px_80px] gap-4 items-center p-4 bg-[#F8F9FA] border-b border-gray-100 rounded-t-2xl">
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Vazifa nomi</div>
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Guruh</div>
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Muddat</div>
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">Holat</div>
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider text-center">Maks. ball</div>
-          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider text-right pr-4">Amallar</div>
+        <div className="grid grid-cols-[minmax(250px,1fr)_120px_150px_150px_100px_80px] gap-4 items-center p-4 bg-[#F8F9FA] border-b border-gray-100 rounded-t-2xl dark:bg-slate-900 dark:border-slate-700">
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider dark:text-slate-400">Vazifa nomi</div>
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider dark:text-slate-400">Guruh</div>
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider dark:text-slate-400">Muddat</div>
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider dark:text-slate-400">Holat</div>
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider text-center dark:text-slate-400">Maks. ball</div>
+          <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider text-right pr-4 dark:text-slate-400">Amallar</div>
         </div>
 
         {/* Table Body */}
-        <div className="bg-white">
+        <div className="bg-white dark:bg-slate-800">
           <AnimatePresence>
             {assignments.map((assignment) => (
               <AssignmentRow

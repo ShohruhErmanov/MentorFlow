@@ -32,61 +32,55 @@ export default function DeleteAssignmentDialog({ isOpen, onClose, onConfirm, ass
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            className="bg-white dark:bg-slate-800 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)] dark:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.65)]"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '448px', // max-w-md
-              backgroundColor: '#ffffff',
               borderRadius: '16px', // rounded-2xl
-              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.35)',
               padding: '32px', // p-8
             }}
             onClick={(e) => e.stopPropagation()}
           >
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '24px' }}>
-              <div style={{
+              <div className="bg-red-100 dark:bg-red-500/10 text-red-600 dark:text-red-400" style={{
                 width: '48px', height: '48px',
                 borderRadius: '50%',
-                backgroundColor: '#fee2e2', // red-100
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#dc2626', // red-600
                 flexShrink: 0
               }}>
                 <Trash2 size={24} />
               </div>
               <button
                 onClick={onClose}
+                className="text-gray-400 dark:text-slate-500 hover:bg-gray-100 dark:hover:bg-slate-700/40 hover:text-gray-600 dark:hover:text-slate-300 transition-colors"
                 style={{
                   width: '32px', height: '32px',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   borderRadius: '50%', border: 'none', background: 'transparent',
-                  color: '#9ca3af', cursor: 'pointer', transition: 'background 0.15s'
+                  cursor: 'pointer'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; e.currentTarget.style.color = '#4b5563'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#9ca3af'; }}
               >
                 <X size={20} />
               </button>
             </div>
 
-            <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#111827', margin: '0 0 8px' }}>
+            <h2 className="text-gray-900 dark:text-white" style={{ fontSize: '20px', fontWeight: 700, margin: '0 0 8px' }}>
               Topshirilgan vazifani o'chirmoqchimisiz?
             </h2>
-            <p style={{ fontSize: '14px', color: '#6b7280', margin: '0 0 32px', lineHeight: 1.6 }}>
-              Siz rostda ham <strong style={{ color: '#374151' }}>{assignmentTitle}</strong> vazifasini o'chirib tashlamoqchimisiz? Bu amalni ortga qaytarib bo'lmaydi.
+            <p className="text-gray-500 dark:text-slate-400" style={{ fontSize: '14px', margin: '0 0 32px', lineHeight: 1.6 }}>
+              Siz rostda ham <strong className="text-gray-700 dark:text-slate-300">{assignmentTitle}</strong> vazifasini o'chirib tashlamoqchimisiz? Bu amalni ortga qaytarib bo'lmaydi.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '12px' }}>
               <button
                 onClick={onClose}
+                className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700/40 transition-colors"
                 style={{
                   height: '40px', padding: '0 20px', borderRadius: '12px',
-                  fontWeight: 500, fontSize: '14px', color: '#374151',
-                  backgroundColor: '#ffffff', border: '1px solid #e5e7eb',
-                  cursor: 'pointer', transition: 'background 0.15s'
+                  fontWeight: 500, fontSize: '14px',
+                  cursor: 'pointer'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f4f6'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
               >
                 Bekor qilish
               </button>
@@ -95,14 +89,12 @@ export default function DeleteAssignmentDialog({ isOpen, onClose, onConfirm, ass
                   onConfirm();
                   onClose();
                 }}
+                className="bg-red-600 hover:bg-red-700 text-white transition-colors"
                 style={{
                   height: '40px', padding: '0 20px', borderRadius: '12px',
-                  fontWeight: 500, fontSize: '14px', color: '#ffffff',
-                  backgroundColor: '#dc2626', border: 'none',
-                  cursor: 'pointer', transition: 'background 0.15s'
+                  fontWeight: 500, fontSize: '14px',
+                  border: 'none', cursor: 'pointer'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b91c1c'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
               >
                 O'chirish
               </button>
