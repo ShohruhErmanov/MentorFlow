@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getGroupById, getStudentsByGroupId } from '../../services/groups/groupsService';
-import GroupHeader from '../../components/groups/GroupHeader';
-import GroupStatsGrid from '../../components/groups/GroupStatsGrid';
-import GroupTabs from '../../components/groups/GroupTabs';
-import StudentTable from '../../components/groups/StudentTable';
-import AssignmentTable from '../../components/groups/AssignmentTable';
-import EmptyState from '../../components/ui/EmptyState';
-import Skeleton from '../../components/ui/Skeleton';
-import EditGroupModal from '../../components/groups/EditGroupModal';
-import AddAssignmentModal from '../../components/groups/AddAssignmentModal';
-import EditAssignmentModal from '../../components/groups/EditAssignmentModal';
-import DeleteAssignmentDialog from '../../components/groups/DeleteAssignmentDialog';
-import Toast from '../../components/ui/Toast';
+import { getGroupById, getStudentsByGroupId } from '../../../services/groups/groupsService';
+import GroupHeader from '../../../components/groups/GroupHeader';
+import GroupStatsGrid from '../../../components/groups/GroupStatsGrid';
+import GroupTabs from '../../../components/groups/GroupTabs';
+import StudentTable from '../../../components/groups/StudentTable';
+import AssignmentTable from '../../../components/groups/AssignmentTable';
+import EmptyState from '../../../components/ui/EmptyState';
+import Skeleton from '../../../components/ui/Skeleton';
+import EditGroupModal from '../../../components/groups/EditGroupModal';
+import AddAssignmentModal from '../../../components/groups/AddAssignmentModal';
+import EditAssignmentModal from '../../../components/groups/EditAssignmentModal';
+import DeleteAssignmentDialog from '../../../components/groups/DeleteAssignmentDialog';
+import Toast from '../../../components/ui/Toast';
 
 const initialMockAssignments = [
   {

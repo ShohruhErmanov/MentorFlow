@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LogOut, X, AlertTriangle } from 'lucide-react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 function LogoutModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;
@@ -96,11 +98,13 @@ function LogoutModal({ isOpen, onClose, onConfirm }) {
 
 export default function LogoutCard() {
   const [open, setOpen] = useState(false);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleConfirm = () => {
     setOpen(false);
-    // In a real app: call auth logout, redirect to /login
-    window.location.href = '/login';
+    logout();
+    navigate('/login', { replace: true });
   };
 
   return (

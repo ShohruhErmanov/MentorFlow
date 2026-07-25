@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Filter, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import useStudents from '../../hooks/students/useStudents';
-import StudentTable from '../../components/students/StudentTable';
-import FilterModal from '../../components/students/FilterModal';
-import ExportModal from '../../components/students/ExportModal';
-import EditStudentModal from '../../components/students/EditStudentModal';
-import DeleteStudentDialog from '../../components/students/DeleteStudentDialog';
-import Toast from '../../components/ui/Toast';
-import Button from '../../components/ui/Button';
-import SearchInput from '../../components/ui/SearchInput';
+import useStudents from '../../../hooks/students/useStudents';
+import StudentTable from '../../../components/students/StudentTable';
+import FilterModal from '../../../components/students/FilterModal';
+import ExportModal from '../../../components/students/ExportModal';
+import EditStudentModal from '../../../components/students/EditStudentModal';
+import DeleteStudentDialog from '../../../components/students/DeleteStudentDialog';
+import Toast from '../../../components/ui/Toast';
+import Button from '../../../components/ui/Button';
+import SearchInput from '../../../components/ui/SearchInput';
 
 export default function StudentsPage() {
   const navigate = useNavigate();

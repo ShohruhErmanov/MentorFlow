@@ -1,10 +1,9 @@
 import { z } from 'zod'
 
 export const loginSchema = z.object({
-  email: z
+  username: z
     .string()
-    .min(1, { message: "Email manzil kiritish majburiy" })
-    .email({ message: "To'g'ri email manzil kiriting" }),
+    .min(1, { message: "Foydalanuvchi nomini kiritish majburiy" }),
   password: z
     .string()
     .min(1, { message: "Parol kiritish majburiy" })

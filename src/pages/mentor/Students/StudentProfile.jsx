@@ -2,16 +2,16 @@ import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import useStudents from '../../hooks/students/useStudents';
-import EmptyState from '../../components/ui/EmptyState';
-import StudentProfileCard from '../../components/students/profile/StudentProfileCard';
-import StudentStats from '../../components/students/profile/StudentStats';
-import StudentTabs from '../../components/students/profile/StudentTabs';
-import AssignmentList from '../../components/students/profile/AssignmentList';
-import PerformanceChart from '../../components/students/profile/PerformanceChart';
-import Achievements from '../../components/students/profile/Achievements';
-import MessageModal from '../../components/students/profile/MessageModal';
-import Toast from '../../components/ui/Toast';
+import useStudents from '../../../hooks/students/useStudents';
+import EmptyState from '../../../components/ui/EmptyState';
+import StudentProfileCard from '../../../components/students/profile/StudentProfileCard';
+import StudentStats from '../../../components/students/profile/StudentStats';
+import StudentTabs from '../../../components/students/profile/StudentTabs';
+import AssignmentList from '../../../components/students/profile/AssignmentList';
+import PerformanceChart from '../../../components/students/profile/PerformanceChart';
+import Achievements from '../../../components/students/profile/Achievements';
+import MessageModal from '../../../components/students/profile/MessageModal';
+import Toast from '../../../components/ui/Toast';
 
 export default function StudentProfile() {
   const { studentId } = useParams();

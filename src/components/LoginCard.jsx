@@ -1,7 +1,7 @@
 import { useWatch } from 'react-hook-form'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Mail, Lock, CheckCircle2 } from 'lucide-react'
+import { User, Lock, CheckCircle2 } from 'lucide-react'
 
 import InputField   from './ui/InputField.jsx'
 import SocialButton from './ui/SocialButton.jsx'
@@ -108,16 +108,16 @@ export default function LoginCard({
 
         <motion.div custom={1} variants={fieldVariants} initial="hidden" animate="visible">
           <InputField
-            id="email"
-            label="Elektron pochta"
-            type="email"
-            placeholder="Elektron pochtangizni kiriting"
-            leftIcon={Mail}
-            error={errors.email?.message}
+            id="username"
+            label="Foydalanuvchi nomi"
+            type="text"
+            placeholder="Foydalanuvchi nomingizni kiriting"
+            leftIcon={User}
+            error={errors.username?.message}
             disabled={isLoading || isSuccess}
-            autoComplete="email"
+            autoComplete="username"
             autoFocus
-            {...register('email')}
+            {...register('username')}
           />
         </motion.div>
 

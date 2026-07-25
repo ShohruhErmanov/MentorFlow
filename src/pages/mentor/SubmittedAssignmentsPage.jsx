@@ -1,16 +1,16 @@
 import { useState, useEffect, useMemo } from 'react';
-import { submittedAssignmentsData } from '../data/submittedAssignments';
-import AssignmentsHeader from '../components/submittedAssignments/AssignmentsHeader';
-import SubmittedAssignmentCard from '../components/submittedAssignments/SubmittedAssignmentCard';
-import AssignmentsFilterModal from '../components/submittedAssignments/AssignmentsFilterModal';
-import AssignmentReviewModal from '../components/submittedAssignments/AssignmentReviewModal';
-import AssignmentPreviewModal from '../components/submittedAssignments/AssignmentPreviewModal';
-import DeleteAssignmentDialog from '../components/submittedAssignments/DeleteAssignmentDialog';
-import DownloadAssignmentDialog from '../components/submittedAssignments/DownloadAssignmentDialog';
-import LoadMoreButton from '../components/submittedAssignments/LoadMoreButton';
-import EmptyState from '../components/submittedAssignments/EmptyState';
-import SkeletonCard from '../components/submittedAssignments/SkeletonCard';
-import Toast from '../components/ui/Toast';
+import { submittedAssignmentsData } from '../../data/submittedAssignments';
+import AssignmentsHeader from '../../components/submittedAssignments/AssignmentsHeader';
+import SubmittedAssignmentCard from '../../components/submittedAssignments/SubmittedAssignmentCard';
+import AssignmentsFilterModal from '../../components/submittedAssignments/AssignmentsFilterModal';
+import AssignmentReviewModal from '../../components/submittedAssignments/AssignmentReviewModal';
+import AssignmentPreviewModal from '../../components/submittedAssignments/AssignmentPreviewModal';
+import DeleteAssignmentDialog from '../../components/submittedAssignments/DeleteAssignmentDialog';
+import DownloadAssignmentDialog from '../../components/submittedAssignments/DownloadAssignmentDialog';
+import LoadMoreButton from '../../components/submittedAssignments/LoadMoreButton';
+import EmptyState from '../../components/submittedAssignments/EmptyState';
+import SkeletonCard from '../../components/submittedAssignments/SkeletonCard';
+import Toast from '../../components/ui/Toast';
 import { Search } from 'lucide-react';
 
 export default function SubmittedAssignmentsPage() {

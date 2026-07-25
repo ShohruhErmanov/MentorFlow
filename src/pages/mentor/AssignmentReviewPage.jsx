@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { reviewAssignmentsData } from '../data/reviewAssignments';
+import { reviewAssignmentsData } from '../../data/reviewAssignments';
 
-import ReviewHeader from '../components/review/ReviewHeader';
-import ResourcesCard from '../components/review/ResourcesCard';
-import AssignmentPreviewCard from '../components/review/AssignmentPreviewCard';
-import ReviewScoreCard from '../components/review/ReviewScoreCard';
-import CommentsHistory from '../components/review/CommentsHistory';
-import AssignmentPreviewModal from '../components/review/AssignmentPreviewModal';
-import AcceptDialog from '../components/review/AcceptDialog';
-import ReturnDialog from '../components/review/ReturnDialog';
-import ResourceModal from '../components/review/ResourceModal';
+import ReviewHeader from '../../components/review/ReviewHeader';
+import ResourcesCard from '../../components/review/ResourcesCard';
+import AssignmentPreviewCard from '../../components/review/AssignmentPreviewCard';
+import ReviewScoreCard from '../../components/review/ReviewScoreCard';
+import CommentsHistory from '../../components/review/CommentsHistory';
+import AssignmentPreviewModal from '../../components/review/AssignmentPreviewModal';
+import AcceptDialog from '../../components/review/AcceptDialog';
+import ReturnDialog from '../../components/review/ReturnDialog';
+import ResourceModal from '../../components/review/ResourceModal';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },

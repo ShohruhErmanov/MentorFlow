@@ -7,19 +7,19 @@ import {
   groupOptions,
   monthOptions,
   attendanceStudents,
-} from '../data/attendanceData';
+} from '../../data/attendanceData';
 
-import AttendanceHeader from '../components/attendance/AttendanceHeader';
-import AttendanceStats from '../components/attendance/AttendanceStats';
-import AttendanceCalendar from '../components/attendance/AttendanceCalendar';
-import TodayLessonCard from '../components/attendance/TodayLessonCard';
-import AttendanceTable from '../components/attendance/AttendanceTable';
-import Toast from '../components/ui/Toast';
+import AttendanceHeader from '../../components/attendance/AttendanceHeader';
+import AttendanceStats from '../../components/attendance/AttendanceStats';
+import AttendanceCalendar from '../../components/attendance/AttendanceCalendar';
+import TodayLessonCard from '../../components/attendance/TodayLessonCard';
+import AttendanceTable from '../../components/attendance/AttendanceTable';
+import Toast from '../../components/ui/Toast';
 
-import AttendanceStatusModal from '../components/attendance/AttendanceStatusModal';
-import EditAttendanceModal from '../components/attendance/EditAttendanceModal';
-import AttendanceHistoryDrawer from '../components/attendance/AttendanceHistoryDrawer';
-import AttendanceCommentModal from '../components/attendance/AttendanceCommentModal';
+import AttendanceStatusModal from '../../components/attendance/AttendanceStatusModal';
+import EditAttendanceModal from '../../components/attendance/EditAttendanceModal';
+import AttendanceHistoryDrawer from '../../components/attendance/AttendanceHistoryDrawer';
+import AttendanceCommentModal from '../../components/attendance/AttendanceCommentModal';
 
 export default function AttendancePage() {
   const [selectedGroup, setSelectedGroup] = useState(groupOptions[0]);

@@ -1,17 +1,17 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useGroups } from '../../hooks/groups/useGroups';
-import GroupActions from '../../components/groups/GroupActions';
-import GroupFilters from '../../components/groups/GroupFilters';
-import GroupCard from '../../components/groups/GroupCard';
-import SummaryCards from '../../components/groups/SummaryCards';
-import Pagination from '../../components/ui/Pagination';
-import EmptyState from '../../components/ui/EmptyState';
-import CreateGroupModal from '../../components/groups/CreateGroupModal';
-import EditGroupModal from '../../components/groups/EditGroupModal';
-import DeleteGroupDialog from '../../components/groups/DeleteGroupDialog';
-import ImportDialog from '../../components/groups/ImportDialog';
-import ExportDialog from '../../components/groups/ExportDialog';
-import Toast from '../../components/ui/Toast';
+import { useGroups } from '../../../hooks/groups/useGroups';
+import GroupActions from '../../../components/groups/GroupActions';
+import GroupFilters from '../../../components/groups/GroupFilters';
+import GroupCard from '../../../components/groups/GroupCard';
+import SummaryCards from '../../../components/groups/SummaryCards';
+import Pagination from '../../../components/ui/Pagination';
+import EmptyState from '../../../components/ui/EmptyState';
+import CreateGroupModal from '../../../components/groups/CreateGroupModal';
+import EditGroupModal from '../../../components/groups/EditGroupModal';
+import DeleteGroupDialog from '../../../components/groups/DeleteGroupDialog';
+import ImportDialog from '../../../components/groups/ImportDialog';
+import ExportDialog from '../../../components/groups/ExportDialog';
+import Toast from '../../../components/ui/Toast';
 
 export default function GroupsPage() {
   const {

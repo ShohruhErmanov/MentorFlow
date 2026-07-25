@@ -3,7 +3,12 @@ import Avatar from '../ui/Avatar';
 import Button from '../ui/Button';
 import SearchInput from '../ui/SearchInput';
 
-export default function Header({ onMenuClick }) {
+const defaultActionIcons = [
+  { icon: Bell, label: 'Bildirishnomalar' },
+  { icon: Settings, label: 'Sozlamalar' },
+];
+
+export default function Header({ onMenuClick, actionIcons = defaultActionIcons, user }) {
   return (
     <header className="sticky top-0 z-30 h-[72px] border-b border-[#e1e2ed] bg-white/92 backdrop-blur-xl dark:border-slate-800 dark:bg-gray-900/92">
       <div className="flex h-full items-center gap-4 px-4 sm:px-6 lg:px-8">
@@ -22,13 +27,25 @@ export default function Header({ onMenuClick }) {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <Button variant="icon" size="icon" aria-label="Bildirishnomalar">
-            <Bell size={21} strokeWidth={2.1} aria-hidden="true" />
-          </Button>
-          <Button variant="icon" size="icon" aria-label="Sozlamalar">
-            <Settings size={21} strokeWidth={2.1} aria-hidden="true" />
-          </Button>
-          <Avatar initials="MF" size="md" alt="Mentor profili" />
+          {actionIcons.map(({ icon: Icon, label, dot }) => (
+            <Button key={label} variant="icon" size="icon" className="relative" aria-label={label}>
+              <Icon size={21} strokeWidth={2.1} aria-hidden="true" />
+              {dot && (
+                <span
+                  className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-900"
+                  aria-hidden="true"
+                />
+              )}
+            </Button>
+          ))}
+
+          {user && (
+            <div className="hidden text-right leading-tight sm:block">
+              <p className="text-sm font-bold text-[#191b23] dark:text-white">{user.name}</p>
+              <p className="text-xs font-medium text-[#737686] dark:text-slate-400">{user.role}</p>
+            </div>
+          )}
+          <Avatar initials={user?.initials ?? 'MF'} size="md" alt={user ? `${user.name} profili` : 'Mentor profili'} />
         </div>
       </div>
     </header>

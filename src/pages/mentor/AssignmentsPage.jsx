@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Filter } from 'lucide-react';
-import { initialAssignments } from '../components/assignments/mockData';
-import SearchBar from '../components/assignments/SearchBar';
-import FilterModal from '../components/assignments/FilterModal';
-import AssignmentTable from '../components/assignments/AssignmentTable';
-import Pagination from '../components/assignments/Pagination';
-import FloatingCreateButton from '../components/assignments/FloatingCreateButton';
-import CreateAssignmentModal from '../components/assignments/CreateAssignmentModal';
-import AssignmentDetailsModal from '../components/assignments/AssignmentDetailsModal';
-import DeleteAssignmentDialog from '../components/assignments/DeleteAssignmentDialog';
-import Toast from '../components/assignments/Toast';
+import { initialAssignments } from '../../components/assignments/mockData';
+import SearchBar from '../../components/assignments/SearchBar';
+import FilterModal from '../../components/assignments/FilterModal';
+import AssignmentTable from '../../components/assignments/AssignmentTable';
+import Pagination from '../../components/assignments/Pagination';
+import FloatingCreateButton from '../../components/assignments/FloatingCreateButton';
+import CreateAssignmentModal from '../../components/assignments/CreateAssignmentModal';
+import AssignmentDetailsModal from '../../components/assignments/AssignmentDetailsModal';
+import DeleteAssignmentDialog from '../../components/assignments/DeleteAssignmentDialog';
+import Toast from '../../components/assignments/Toast';
 
 const AssignmentsPage = () => {
   // ── Data ──────────────────────────────────────────────────────────────────

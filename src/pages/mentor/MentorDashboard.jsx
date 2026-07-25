@@ -5,7 +5,7 @@ import WeeklyPerformanceChart from '../../components/dashboard/WeeklyPerformance
 import WelcomeSection from '../../components/dashboard/WelcomeSection';
 import { stats } from '../../services/dashboardService';
 
-export default function Dashboard() {
+export default function MentorDashboard() {
   return (
     <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8 2xl:max-w-[1600px]">
       <WelcomeSection />

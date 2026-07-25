@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema } from '../validation/loginSchema'
+import { useAuth } from '../contexts/AuthContext'
+import { getDefaultPathForRole } from '../routes/roleRoutes'
 
 /**
  * Custom hook encapsulating login form logic, state, and submission.
@@ -13,11 +15,12 @@ export function useLogin() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
       rememberMe: false,
     },
@@ -25,24 +28,26 @@ export function useLogin() {
   })
 
   /**
-   * Simulates an API login call with a 2-second delay.
+   * Validates credentials against mock users and stores the session in AuthContext.
    * @param {import('../validation/loginSchema').LoginFormData} data
    */
   const onSubmit = async (data) => {
     setIsLoading(true)
     setIsSuccess(false)
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      console.log('Login successful:', data)
+      // Simulate network latency
+      await new Promise((resolve) => setTimeout(resolve, 800))
+      const user = login(data.username, data.password)
+
+      if (!user) {
+        form.setError('root', {
+          message: "Foydalanuvchi nomi yoki parol noto'g'ri.",
+        })
+        return
+      }
+
       setIsSuccess(true)
-      // Navigate to dashboard after short success flash
-      setTimeout(() => navigate('/dashboard'), 800)
-    } catch (error) {
-      console.error('Login error:', error)
-      form.setError('root', {
-        message: 'Kirish amalga oshmadi. Qaytadan urinib ko\'ring.',
-      })
+      setTimeout(() => navigate(getDefaultPathForRole(user.role), { replace: true }), 800)
     } finally {
       setIsLoading(false)
     }
