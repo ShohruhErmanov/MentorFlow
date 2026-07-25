@@ -27,7 +27,7 @@ export default function ScoreSlider({ score, onChange }) {
           onChange={(e) => onChange(Number(e.target.value))}
           className="w-full h-2 rounded-full appearance-none cursor-pointer outline-none"
           style={{
-            background: `linear-gradient(to right, ${getTrackColor()} 0%, ${getTrackColor()} ${score}%, #e5e7eb ${score}%, #e5e7eb 100%)`,
+            background: `linear-gradient(to right, ${getTrackColor()} 0%, ${getTrackColor()} ${score}%, var(--color-border) ${score}%, var(--color-border) 100%)`,
           }}
         />
       </div>
@@ -35,7 +35,7 @@ export default function ScoreSlider({ score, onChange }) {
       <div className="flex justify-between mt-2">
         {LABELS.map((item) => (
           <div key={item.value} className="flex flex-col items-center">
-            <span className="text-[10px] text-gray-400">{item.value === 100 ? '100' : ''}</span>
+            <span className="text-[10px] text-gray-400 dark:text-slate-500">{item.value === 100 ? '100' : ''}</span>
             <span className={`text-[11px] font-medium ${item.color}`}>
               {item.label}
             </span>

@@ -44,13 +44,12 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            className="bg-white dark:bg-slate-800 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.35)] dark:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.65)]"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '420px',
-              backgroundColor: '#ffffff',
               borderRadius: '16px',
-              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.35)',
               overflow: 'hidden',
             }}
             onClick={(e) => e.stopPropagation()}
@@ -97,22 +96,23 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
 
             {/* ── Body ── */}
             <div style={{ padding: '24px' }}>
-              <div style={{
-                backgroundColor: '#f9fafb',
-                borderRadius: '12px',
-                padding: '16px',
-                marginBottom: '20px',
-                border: '1px solid #f3f4f6',
-              }}>
-                <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '4px', fontWeight: 500, margin: '0 0 4px' }}>
+              <div
+                className="bg-gray-50 border border-gray-100 dark:bg-slate-900 dark:border-slate-700"
+                style={{
+                  borderRadius: '12px',
+                  padding: '16px',
+                  marginBottom: '20px',
+                }}
+              >
+                <p className="text-gray-400 dark:text-slate-500" style={{ fontSize: '12px', marginBottom: '4px', fontWeight: 500, margin: '0 0 4px' }}>
                   URL manzil
                 </p>
-                <p style={{ fontSize: '14px', color: '#374151', fontWeight: 500, wordBreak: 'break-all', margin: 0 }}>
+                <p className="text-gray-700 dark:text-slate-200" style={{ fontSize: '14px', fontWeight: 500, wordBreak: 'break-all', margin: 0 }}>
                   {resource.url}
                 </p>
               </div>
 
-              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '20px', lineHeight: 1.6, margin: '0 0 20px' }}>
+              <p className="text-gray-500 dark:text-slate-400" style={{ fontSize: '14px', marginBottom: '20px', lineHeight: 1.6, margin: '0 0 20px' }}>
                 Bu manba o'quvchi tomonidan topshirilgan vazifaga biriktirilgan.
                 Haqiqiy loyihada ushbu havola tashqi resurslarga yo'naltiriladi.
               </p>
@@ -120,30 +120,25 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
               <div style={{ display: 'flex', gap: '12px' }}>
                 <button
                   onClick={onClose}
+                  className="text-gray-700 bg-white hover:bg-gray-50 border border-gray-200 dark:text-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600"
                   style={{
                     flex: 1, height: '40px',
                     borderRadius: '12px', fontWeight: 500, fontSize: '14px',
-                    color: '#374151', backgroundColor: '#ffffff',
-                    border: '1px solid #e5e7eb', cursor: 'pointer',
-                    transition: 'background 0.15s',
+                    cursor: 'pointer', transition: 'background 0.15s',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f9fafb'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
                 >
                   Yopish
                 </button>
                 <button
                   onClick={onClose}
+                  className="text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
                   style={{
                     flex: 1, height: '40px',
                     borderRadius: '12px', fontWeight: 500, fontSize: '14px',
-                    color: '#ffffff', backgroundColor: '#2563eb',
                     border: 'none', cursor: 'pointer',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                     transition: 'background 0.15s',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1d4ed8'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2563eb'}
                 >
                   <ExternalLink size={15} />
                   Ko'rish

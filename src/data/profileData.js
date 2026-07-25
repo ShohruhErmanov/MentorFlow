@@ -36,8 +36,3 @@ export const notificationSettings = [
     defaultChecked: false,
   },
 ];
-
-export const themes = [
-  { id: 'light', label: 'Yorug\'', icon: '☀️' },
-  { id: 'dark', label: 'Qorong\'i', icon: '🌙' },
-];

@@ -47,7 +47,7 @@ export default function ProfilePage() {
         {/* ── Right Column ── */}
         <div className="flex flex-col gap-6">
           <NotificationSettings notifications={notificationSettings} />
-          <SystemSettings languages={languages} themes={themes} />
+          <SystemSettings languages={languages} />
           <LogoutCard />
         </div>
       </div>

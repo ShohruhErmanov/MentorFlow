@@ -11,7 +11,7 @@ export default function CommentBubble({ comment }) {
           className="w-9 h-9 rounded-full object-cover shrink-0 mt-1"
         />
       ) : (
-        <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-bold shrink-0 mt-1">
+        <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-sm font-bold shrink-0 mt-1 dark:bg-blue-500/10 dark:text-blue-400">
           {comment.initials}
         </div>
       )}
@@ -19,15 +19,15 @@ export default function CommentBubble({ comment }) {
       {/* Bubble */}
       <div className={`flex flex-col max-w-[75%] ${isStudent ? 'items-start' : 'items-end'}`}>
         <div className="flex items-center gap-2 mb-1">
-          {isStudent && <span className="text-xs font-semibold text-gray-700">{comment.name}</span>}
-          <span className="text-[10px] text-gray-400">{comment.time}</span>
-          {!isStudent && <span className="text-xs font-semibold text-gray-700">{comment.name}</span>}
+          {isStudent && <span className="text-xs font-semibold text-gray-700 dark:text-slate-300">{comment.name}</span>}
+          <span className="text-[10px] text-gray-400 dark:text-slate-500">{comment.time}</span>
+          {!isStudent && <span className="text-xs font-semibold text-gray-700 dark:text-slate-300">{comment.name}</span>}
         </div>
         <div
           className={`px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
             isStudent
-              ? 'bg-gray-100 text-gray-800 rounded-tl-sm'
-              : 'bg-blue-600 text-white rounded-tr-sm'
+              ? 'bg-gray-100 text-gray-800 rounded-tl-sm dark:bg-slate-700 dark:text-slate-100'
+              : 'bg-blue-600 text-white rounded-tr-sm dark:bg-blue-500'
           }`}
         >
           {comment.text}

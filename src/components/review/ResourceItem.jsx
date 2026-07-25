@@ -34,17 +34,17 @@ export default function ResourceItem({ resource, onClick }) {
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.15 }}
-      className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-xl hover:border-blue-100 hover:shadow-sm transition-all cursor-pointer"
+      className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-xl hover:border-blue-100 hover:shadow-sm transition-all cursor-pointer dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500/30"
       onClick={onClick}
     >
-      <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center shrink-0">
+      <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center shrink-0 dark:bg-slate-900">
         {icons[resource.type] ?? icons.pdf}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="font-semibold text-gray-800 text-sm">{resource.title}</p>
-        <p className="text-xs text-gray-500 truncate">{resource.subtitle}</p>
+        <p className="font-semibold text-gray-800 text-sm dark:text-slate-100">{resource.title}</p>
+        <p className="text-xs text-gray-500 truncate dark:text-slate-400">{resource.subtitle}</p>
       </div>
-      <button className="h-8 px-4 text-xs font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors shrink-0">
+      <button className="h-8 px-4 text-xs font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors shrink-0 dark:text-blue-400 dark:bg-blue-500/10 dark:hover:bg-blue-500/20">
         Ochish
       </button>
     </motion.div>

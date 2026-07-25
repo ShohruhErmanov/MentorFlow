@@ -30,13 +30,12 @@ export default function ReturnDialog({ isOpen, onClose, onReturn, studentName })
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            className="bg-white dark:bg-slate-800 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.6)]"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '640px',
-              backgroundColor: '#ffffff',
               borderRadius: '16px',
-              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.3)',
               overflow: 'auto',
               maxHeight: '90vh',
             }}
@@ -45,47 +44,42 @@ export default function ReturnDialog({ isOpen, onClose, onReturn, studentName })
             <div style={{ padding: '32px' }}>
               {/* Icon + title */}
               <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-                <div style={{
-                  width: '64px', height: '64px',
-                  backgroundColor: '#ffedd5',
-                  borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto 20px',
-                }}>
-                  <AlertTriangle size={32} style={{ color: '#ea580c' }} />
+                <div
+                  className="bg-orange-100 dark:bg-orange-500/10"
+                  style={{
+                    width: '64px', height: '64px',
+                    borderRadius: '50%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    margin: '0 auto 20px',
+                  }}
+                >
+                  <AlertTriangle size={32} className="text-orange-600 dark:text-orange-400" />
                 </div>
-                <h2 style={{ margin: 0, fontSize: '20px', fontWeight: 700, color: '#111827' }}>
+                <h2 className="text-gray-900 dark:text-white" style={{ margin: 0, fontSize: '20px', fontWeight: 700 }}>
                   Vazifani qaytarish
                 </h2>
               </div>
 
               {/* Textarea */}
               <div style={{ marginBottom: '24px', textAlign: 'left' }}>
-                <label style={{
+                <label className="text-gray-700 dark:text-slate-300" style={{
                   display: 'block', fontSize: '14px', fontWeight: 600,
-                  color: '#374151', marginBottom: '8px',
+                  marginBottom: '8px',
                 }}>
-                  Qaytarish sababi <span style={{ color: '#ef4444' }}>*</span>
+                  Qaytarish sababi <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   rows={4}
                   placeholder="O'quvchiga nima sababdan qaytarayotganingizni yozing..."
+                  className="border-gray-200 text-gray-700 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-orange-500 dark:focus:ring-orange-500/20"
                   style={{
                     width: '100%', padding: '16px',
-                    border: '1px solid #e5e7eb', borderRadius: '12px',
+                    border: '1px solid', borderRadius: '12px',
                     fontSize: '14px', outline: 'none', resize: 'none',
-                    fontFamily: 'inherit', transition: 'border-color 0.15s',
+                    fontFamily: 'inherit', transition: 'border-color 0.15s, box-shadow 0.15s',
                     boxSizing: 'border-box',
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = '#fb923c';
-                    e.target.style.boxShadow = '0 0 0 3px rgba(251,146,60,0.15)';
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = '#e5e7eb';
-                    e.target.style.boxShadow = 'none';
                   }}
                 />
               </div>
@@ -94,36 +88,28 @@ export default function ReturnDialog({ isOpen, onClose, onReturn, studentName })
               <div style={{ display: 'flex', gap: '12px' }}>
                 <button
                   onClick={onClose}
+                  className="text-gray-700 bg-white hover:bg-gray-50 border border-gray-200 dark:text-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600"
                   style={{
                     flex: 1, height: '48px',
                     borderRadius: '12px', fontWeight: 600, fontSize: '14px',
-                    color: '#374151', backgroundColor: '#ffffff',
-                    border: '1px solid #e5e7eb', cursor: 'pointer',
-                    transition: 'background 0.15s',
+                    cursor: 'pointer', transition: 'background 0.15s',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f9fafb'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
                 >
                   Bekor qilish
                 </button>
                 <button
                   onClick={handleConfirm}
                   disabled={!reason.trim()}
+                  className={reason.trim()
+                    ? 'text-white bg-orange-500 hover:bg-orange-600 dark:bg-orange-500 dark:hover:bg-orange-600'
+                    : 'text-white bg-gray-300 dark:bg-slate-600'}
                   style={{
                     flex: 1, height: '48px',
                     borderRadius: '12px', fontWeight: 600, fontSize: '14px',
-                    color: '#ffffff',
-                    backgroundColor: reason.trim() ? '#f97316' : '#d1d5db',
                     border: 'none',
                     cursor: reason.trim() ? 'pointer' : 'not-allowed',
                     opacity: reason.trim() ? 1 : 0.6,
                     transition: 'background 0.15s',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (reason.trim()) e.currentTarget.style.backgroundColor = '#ea580c';
-                  }}
-                  onMouseLeave={(e) => {
-                    if (reason.trim()) e.currentTarget.style.backgroundColor = '#f97316';
                   }}
                 >
                   Qaytarish
