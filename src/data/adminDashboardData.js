@@ -2,53 +2,73 @@ import { CalendarCheck, CreditCard, GraduationCap, Layers, Users } from 'lucide-
 
 export const adminActivityCount = 124;
 
-export const adminStats = [
-  {
-    id: 'students',
-    label: "Jami o'quvchilar",
-    value: '1,284',
-    trend: '+12%',
-    trendTone: 'positive',
-    icon: GraduationCap,
-    tone: 'blue',
-  },
-  {
-    id: 'mentors',
-    label: 'Jami mentorlar',
-    value: '48',
-    trend: '+4',
-    trendTone: 'positive',
-    icon: Users,
-    tone: 'orange',
-  },
-  {
-    id: 'groups',
-    label: 'Jami guruhlar',
-    value: '36',
-    trend: 'Faol 32',
-    trendTone: 'neutral',
-    icon: Layers,
-    tone: 'rose',
-  },
-  {
-    id: 'attendance',
-    label: 'Bugungi davomat',
-    value: '842',
-    trend: '92%',
-    trendTone: 'positive',
-    icon: CalendarCheck,
-    tone: 'red',
-  },
-  {
-    id: 'payments',
-    label: "To'lov holati",
-    value: '98 mln',
-    trend: "85% to'landi",
-    trendTone: 'positive',
-    icon: CreditCard,
-    tone: 'green',
-  },
+// Baseline counts representing existing, not individually-modeled records.
+// New records created through the quick-action modals are added on top of these.
+export const ADMIN_BASE_COUNTS = {
+  students: 1284,
+  mentors: 48,
+  groups: 36,
+  activeGroups: 32,
+};
+
+export const mentorDirectorySeed = [
+  'Azizbek Karimov',
+  'Malika Yusupova',
+  'Sardor Raxmatov',
+  'Dilnoza Toshmatova',
 ];
+
+export const courseDirectorySeed = ['Frontend React', 'Backend Python', 'UI/UX Dizayn'];
+
+export function buildAdminStats({ studentsCount, mentorsCount, groupsCount, activeGroupsCount }) {
+  return [
+    {
+      id: 'students',
+      label: "Jami o'quvchilar",
+      value: studentsCount.toLocaleString('en-US'),
+      trend: '+12%',
+      trendTone: 'positive',
+      icon: GraduationCap,
+      tone: 'blue',
+    },
+    {
+      id: 'mentors',
+      label: 'Jami mentorlar',
+      value: String(mentorsCount),
+      trend: '+4',
+      trendTone: 'positive',
+      icon: Users,
+      tone: 'orange',
+    },
+    {
+      id: 'groups',
+      label: 'Jami guruhlar',
+      value: String(groupsCount),
+      trend: `Faol ${activeGroupsCount}`,
+      trendTone: 'neutral',
+      icon: Layers,
+      tone: 'rose',
+    },
+    {
+      id: 'attendance',
+      label: 'Bugungi davomat',
+      value: '842',
+      trend: '92%',
+      trendTone: 'positive',
+      icon: CalendarCheck,
+      tone: 'red',
+    },
+    {
+      id: 'payments',
+      label: "To'lov holati",
+      value: '98 mln',
+      trend: "85% to'landi",
+      trendTone: 'positive',
+      icon: CreditCard,
+      tone: 'green',
+    },
+  ];
+}
 
 export const studentGrowthData = [
   { month: 'Yan', students: 620 },

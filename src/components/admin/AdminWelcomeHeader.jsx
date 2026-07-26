@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { BookPlus, UserPlus, Users } from 'lucide-react';
 import Button from '../ui/Button';
 
-export default function AdminWelcomeHeader({ activityCount }) {
+export default function AdminWelcomeHeader({ activityCount, onAddUser, onAddGroup, onAddCourse }) {
   return (
     <motion.section
       initial={{ opacity: 0, y: -12 }}
@@ -20,7 +20,7 @@ export default function AdminWelcomeHeader({ activityCount }) {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Button variant="primary" size="md">
+        <Button variant="primary" size="md" onClick={onAddUser}>
           <UserPlus size={17} strokeWidth={2.2} aria-hidden="true" />
           Yangi foydalanuvchi
         </Button>
@@ -28,6 +28,7 @@ export default function AdminWelcomeHeader({ activityCount }) {
           variant="ghost"
           size="md"
           className="border border-[#e1e2ed] dark:border-slate-700"
+          onClick={onAddGroup}
         >
           <Users size={17} strokeWidth={2.2} aria-hidden="true" />
           Yangi guruh
@@ -36,6 +37,7 @@ export default function AdminWelcomeHeader({ activityCount }) {
           variant="ghost"
           size="md"
           className="border border-[#e1e2ed] dark:border-slate-700"
+          onClick={onAddCourse}
         >
           <BookPlus size={17} strokeWidth={2.2} aria-hidden="true" />
           Yangi kurs

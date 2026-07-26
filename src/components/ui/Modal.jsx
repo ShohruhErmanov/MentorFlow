@@ -1,10 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import clsx from 'clsx';
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export default function Modal({ isOpen, onClose, title, children, className }) {
+  const panelRef = useRef(null);
+
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -16,6 +21,44 @@ export default function Modal({ isOpen, onClose, title, children, className }) {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  // Autofocus the first focusable element when the modal opens
+  useEffect(() => {
+    if (isOpen) {
+      panelRef.current?.querySelector(FOCUSABLE_SELECTOR)?.focus();
+    }
+  }, [isOpen]);
+
+  // ESC closes the modal; Tab/Shift+Tab is trapped inside the panel
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (event.key === 'Tab' && panelRef.current) {
+        const focusable = panelRef.current.querySelectorAll(FOCUSABLE_SELECTOR);
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -33,6 +76,10 @@ export default function Modal({ isOpen, onClose, title, children, className }) {
             aria-hidden="true"
           />
           <motion.div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             initial={{ opacity: 0, scale: 0.95, x: '-50%', y: '-50%' }}
             animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
             exit={{ opacity: 0, scale: 0.95, x: '-50%', y: '-50%' }}
@@ -44,7 +91,7 @@ export default function Modal({ isOpen, onClose, title, children, className }) {
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e1e2ed] dark:border-slate-700">
-              <h2 className="text-xl font-bold text-[#191b23] dark:text-white">{title}</h2>
+              <h2 id="modal-title" className="text-xl font-bold text-[#191b23] dark:text-white">{title}</h2>
               <button
                 onClick={onClose}
                 className="rounded-lg p-2 text-[#737686] transition-colors hover:bg-[#f3f3fe] hover:text-[#191b23] dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"

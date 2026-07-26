@@ -9,6 +9,9 @@ const RegisterPage = lazy(() => import('./pages/Register.jsx'));
 
 const AdminLayout = lazy(() => import('./layouts/AdminLayout.jsx'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard.jsx'));
+const UsersPage = lazy(() => import('./pages/admin/UsersPage.jsx'));
+const MentorsPage = lazy(() => import('./pages/admin/MentorsPage.jsx'));
+const AdminStudentsPage = lazy(() => import('./pages/admin/StudentsPage.jsx'));
 
 const MentorLayout = lazy(() => import('./layouts/MentorLayout.jsx'));
 const MentorDashboard = lazy(() => import('./pages/mentor/MentorDashboard.jsx'));
@@ -51,6 +54,9 @@ function App() {
             <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
               <Route element={<AdminLayout />}>
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="/admin/users" element={<UsersPage />} />
+                <Route path="/admin/mentors" element={<MentorsPage />} />
+                <Route path="/admin/students" element={<AdminStudentsPage />} />
               </Route>
             </Route>
 

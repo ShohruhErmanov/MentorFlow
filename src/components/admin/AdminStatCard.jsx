@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import clsx from 'clsx';
 import Card from '../ui/Card';
 
@@ -12,6 +12,10 @@ const toneStyles = {
 
 const trendStyles = {
   positive: 'bg-[#e8f6ed] text-[#20834a] dark:bg-emerald-500/10 dark:text-emerald-400',
+  success: 'bg-[#e8f6ed] text-[#20834a] dark:bg-emerald-500/10 dark:text-emerald-400',
+  info: 'bg-[#dbe1ff] text-[#2563eb] dark:bg-blue-500/10 dark:text-blue-400',
+  danger: 'bg-[#ffdad6] text-[#ba1a1a] dark:bg-red-500/10 dark:text-red-400',
+  negative: 'bg-[#ffdad6] text-[#ba1a1a] dark:bg-red-500/10 dark:text-red-400',
   neutral: 'bg-[#f3f3fe] text-[#737686] dark:bg-slate-700/50 dark:text-slate-400',
 };
 
@@ -29,6 +33,7 @@ export default function AdminStatCard({ label, value, trend, trendTone = 'positi
           )}
         >
           {trendTone === 'positive' && <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />}
+          {trendTone === 'negative' && <ArrowDownRight size={13} strokeWidth={2.4} aria-hidden="true" />}
           {trend}
         </span>
       </div>
