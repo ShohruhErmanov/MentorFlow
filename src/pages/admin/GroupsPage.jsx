@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CalendarCheck, CircleCheck, FileBarChart, FileSpreadsheet, GraduationCap, Layers, Plus, Users } from 'lucide-react';
 import Button from '../../components/ui/Button';
@@ -8,11 +9,15 @@ import AdminStatCard from '../../components/admin/AdminStatCard';
 import FilterBar from '../../components/admin/groups/FilterBar';
 import GroupsGrid from '../../components/admin/groups/GroupsGrid';
 import GroupModal from '../../components/admin/groups/GroupModal';
-import ViewGroup from '../../components/admin/groups/ViewGroup';
 import { useAdminGroups } from '../../hooks/admin/useAdminGroups';
 
 export default function GroupsPage() {
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
+
+  const goToGroup = (group, initialTab) => {
+    navigate(`/admin/groups/${group.id}`, { state: initialTab ? { initialTab } : undefined });
+  };
 
   const {
     isLoading,
@@ -39,9 +44,6 @@ export default function GroupsPage() {
     createModalOpen,
     openCreateModal,
     closeCreateModal,
-    viewGroup,
-    openViewModal,
-    closeViewModal,
     editGroup,
     openEditModal,
     closeEditModal,
@@ -162,12 +164,12 @@ export default function GroupsPage() {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
-        onView={openViewModal}
+        onView={(group) => goToGroup(group)}
         onEdit={openEditModal}
-        onSchedule={openViewModal}
-        onStudents={openViewModal}
-        onAttendance={openViewModal}
-        onAssignments={openViewModal}
+        onSchedule={(group) => goToGroup(group, 'schedule')}
+        onStudents={(group) => goToGroup(group, 'students')}
+        onAttendance={(group) => goToGroup(group, 'attendance')}
+        onAssignments={(group) => goToGroup(group, 'assignments')}
         onArchive={openArchiveDialog}
         onDelete={openDeleteDialog}
         hasFilters={hasFilters}
@@ -178,8 +180,6 @@ export default function GroupsPage() {
       <GroupModal mode="create" isOpen={createModalOpen} onClose={closeCreateModal} onSubmit={addGroup} />
 
       <GroupModal mode="edit" isOpen={!!editGroup} onClose={closeEditModal} onSubmit={saveEditedGroup} group={editGroup} />
-
-      <ViewGroup isOpen={!!viewGroup} onClose={closeViewModal} group={viewGroup} />
 
       <ConfirmDialog
         isOpen={!!archiveGroup}

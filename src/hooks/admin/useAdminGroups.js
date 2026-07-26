@@ -15,7 +15,6 @@ export function useAdminGroups() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [viewGroup, setViewGroup] = useState(null);
   const [editGroup, setEditGroup] = useState(null);
   const [archiveGroup, setArchiveGroup] = useState(null);
   const [deleteGroup, setDeleteGroup] = useState(null);
@@ -168,9 +167,6 @@ export function useAdminGroups() {
     createModalOpen,
     openCreateModal: () => setCreateModalOpen(true),
     closeCreateModal: () => setCreateModalOpen(false),
-    viewGroup,
-    openViewModal: setViewGroup,
-    closeViewModal: () => setViewGroup(null),
     editGroup,
     openEditModal: setEditGroup,
     closeEditModal: () => setEditGroup(null),

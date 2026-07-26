@@ -11,11 +11,18 @@ export const COURSE_OPTIONS = [
 ];
 
 export const MENTOR_OPTIONS = [
+  { name: 'Alisher Vahobov', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-0' },
   { name: 'Jahongir Qosimov', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-1' },
   { name: 'Malika Rahmatova', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-2' },
   { name: 'Rustam Aliyev', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-3' },
   { name: 'Sevara Ahmedova', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-4' },
   { name: 'Bekzod Toirov', avatarUrl: 'https://i.pravatar.cc/150?u=gmentor-5' },
+];
+
+export const STUDENT_STATUS_OPTIONS = [
+  { value: 'active', label: 'Faol' },
+  { value: 'warned', label: 'Ogohlantirilgan' },
+  { value: 'graduated', label: 'Bitirgan' },
 ];
 
 export const WEEKDAYS = [
@@ -57,12 +64,43 @@ function isoDaysAhead(days) {
   return new Date(Date.now() + days * DAY_MS).toISOString();
 }
 
+const STUDENT_STATUS_CYCLE = ['active', 'active', 'active', 'warned', 'active', 'graduated'];
+const FIRST_NAME_POOL = ['Sardor', 'Malika', 'Ibrohim', 'Dilnoza', 'Jasur', 'Nodira', 'Aziz', 'Kamola'];
+const LAST_NAME_POOL = ['Abdullayev', 'Karimova', 'Toshmatov', 'Yusupova', 'Rahimov', 'Saidova', 'Nortojiyev', 'Ergasheva'];
+
 function buildStudents(count, seed) {
+  return Array.from({ length: count }).map((_, i) => {
+    const firstName = FIRST_NAME_POOL[(seed + i) % FIRST_NAME_POOL.length];
+    const lastName = LAST_NAME_POOL[(seed + i * 3) % LAST_NAME_POOL.length];
+    return {
+      id: String(seed * 100 + i + 1).padStart(3, '0'),
+      name: `${firstName} ${lastName}`,
+      avatarUrl: `https://i.pravatar.cc/150?u=gstudent-${seed}-${i}`,
+      phone: `+998 9${i % 10} ${100 + seed} ${10 + (i % 80)} ${20 + (i % 70)}`,
+      attendance: 70 + ((seed + i * 5) % 30),
+      score: 60 + ((seed + i * 7) % 40),
+      status: STUDENT_STATUS_CYCLE[(seed + i) % STUDENT_STATUS_CYCLE.length],
+      parentName: `${lastName} oilasi`,
+      parentPhone: `+998 9${(i + 1) % 10} ${200 + seed} ${10 + (i % 60)} ${30 + (i % 50)}`,
+    };
+  });
+}
+
+function buildAssignments(count, seed, studentCount) {
   return Array.from({ length: count }).map((_, i) => ({
-    name: `O'quvchi ${seed}-${i + 1}`,
-    avatarUrl: `https://i.pravatar.cc/150?u=gstudent-${seed}-${i}`,
-    attendance: 70 + ((seed + i * 5) % 30),
-    score: 60 + ((seed + i * 7) % 40),
+    id: `A-${seed}-${i + 1}`,
+    title: `Vazifa #${i + 1}`,
+    dueDate: isoDaysAhead(i * 7 - 14),
+    submittedCount: Math.max(0, studentCount - ((seed + i) % Math.max(1, studentCount))),
+    totalCount: studentCount,
+  }));
+}
+
+function buildAttendanceHistory(weeks, seed) {
+  return Array.from({ length: weeks }).map((_, i) => ({
+    date: isoDaysAgo(i * 7),
+    presentCount: 10 + ((seed + i * 3) % 10),
+    totalCount: 20,
   }));
 }
 
@@ -77,15 +115,18 @@ const featuredGroups = [
     endDate: isoDaysAhead(90),
     scheduleDays: ['Du', 'Cho', 'Ju'],
     scheduleTime: '14:00 - 16:00',
-    room: 'A-204',
-    capacity: 20,
-    studentCount: 18,
-    avgScore: 91,
-    attendance: 96,
+    room: 'N-3 Xona',
+    capacity: 26,
+    studentCount: 24,
+    avgScore: 88,
+    attendance: 94,
     lessonsCompleted: 16,
     lessonsTotal: 24,
     progressPercent: 72,
-    students: buildStudents(18, 1),
+    students: buildStudents(24, 1),
+    assignments: buildAssignments(8, 1, 24),
+    attendanceHistory: buildAttendanceHistory(8, 1),
+    totalAssignments: 156,
     createdAt: isoDaysAgo(300),
   },
   {
@@ -93,7 +134,7 @@ const featuredGroups = [
     name: 'React N-12',
     course: 'ReactJS Development',
     status: 'active',
-    mentor: MENTOR_OPTIONS[1],
+    mentor: MENTOR_OPTIONS[2],
     startDate: isoDaysAgo(60),
     endDate: isoDaysAhead(120),
     scheduleDays: ['Se', 'Pay', 'Sha'],
@@ -107,6 +148,9 @@ const featuredGroups = [
     lessonsTotal: 24,
     progressPercent: 45,
     students: buildStudents(15, 2),
+    assignments: buildAssignments(6, 2, 15),
+    attendanceHistory: buildAttendanceHistory(6, 2),
+    totalAssignments: 88,
     createdAt: isoDaysAgo(200),
   },
   {
@@ -114,7 +158,7 @@ const featuredGroups = [
     name: 'Backend B-04',
     course: 'Python/Django',
     status: 'active',
-    mentor: MENTOR_OPTIONS[2],
+    mentor: MENTOR_OPTIONS[3],
     startDate: isoDaysAgo(150),
     endDate: isoDaysAhead(30),
     scheduleDays: ['Du', 'Cho', 'Ju'],
@@ -128,6 +172,9 @@ const featuredGroups = [
     lessonsTotal: 24,
     progressPercent: 85,
     students: buildStudents(12, 3),
+    assignments: buildAssignments(10, 3, 12),
+    attendanceHistory: buildAttendanceHistory(10, 3),
+    totalAssignments: 112,
     createdAt: isoDaysAgo(420),
   },
 ];
@@ -167,6 +214,9 @@ function buildGeneratedGroups() {
       lessonsTotal: 24,
       progressPercent: Math.round((lessonsCompleted / 24) * 100),
       students: buildStudents(studentCount, 10 + index),
+      assignments: buildAssignments(5 + (index % 5), 10 + index, studentCount),
+      attendanceHistory: buildAttendanceHistory(6, 10 + index),
+      totalAssignments: 40 + index * 6,
       createdAt: isoDaysAgo(30 + index * 8),
     };
   });
