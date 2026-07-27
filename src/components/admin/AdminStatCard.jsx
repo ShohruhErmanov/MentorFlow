@@ -21,6 +21,12 @@ const trendStyles = {
 
 const highlightStyles = {
   red: 'border-[#ffdad6] bg-[#fff8f7] dark:border-red-500/30 dark:bg-red-500/10',
+  blue: 'border-[#c7d2ff] bg-[#f5f7ff] dark:border-blue-500/30 dark:bg-blue-500/10',
+};
+
+const highlightTextStyles = {
+  red: 'text-[#ba1a1a] dark:text-red-400',
+  blue: 'text-[#2563eb] dark:text-blue-400',
 };
 
 export default function AdminStatCard({
@@ -55,7 +61,7 @@ export default function AdminStatCard({
       <p
         className={clsx(
           'mt-5 text-[28px] font-bold leading-none tracking-[0]',
-          highlight ? 'text-[#ba1a1a] dark:text-red-400' : 'text-[#191b23] dark:text-white',
+          highlight ? highlightTextStyles[tone] : 'text-[#191b23] dark:text-white',
         )}
       >
         {value}

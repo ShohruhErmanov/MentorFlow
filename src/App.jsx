@@ -19,6 +19,7 @@ const AdminCoursesPage = lazy(() => import('./pages/admin/CoursesPage.jsx'));
 const AdminCourseDetailsPage = lazy(() => import('./pages/admin/CourseDetailsPage.jsx'));
 const AdminAssignmentsPage = lazy(() => import('./pages/admin/AssignmentsPage.jsx'));
 const AdminAssignmentDetailsPage = lazy(() => import('./pages/admin/AssignmentDetailsPage.jsx'));
+const AdminAttendancePage = lazy(() => import('./pages/admin/AttendancePage.jsx'));
 
 const MentorLayout = lazy(() => import('./layouts/MentorLayout.jsx'));
 const MentorDashboard = lazy(() => import('./pages/mentor/MentorDashboard.jsx'));
@@ -71,6 +72,7 @@ function App() {
                 <Route path="/admin/courses/:id" element={<AdminCourseDetailsPage />} />
                 <Route path="/admin/assignments" element={<AdminAssignmentsPage />} />
                 <Route path="/admin/assignments/:id" element={<AdminAssignmentDetailsPage />} />
+                <Route path="/admin/attendance" element={<AdminAttendancePage />} />
               </Route>
             </Route>
 
