@@ -17,6 +17,8 @@ const AdminGroupsPage = lazy(() => import('./pages/admin/GroupsPage.jsx'));
 const AdminGroupDetailsPage = lazy(() => import('./pages/admin/GroupDetailsPage.jsx'));
 const AdminCoursesPage = lazy(() => import('./pages/admin/CoursesPage.jsx'));
 const AdminCourseDetailsPage = lazy(() => import('./pages/admin/CourseDetailsPage.jsx'));
+const AdminAssignmentsPage = lazy(() => import('./pages/admin/AssignmentsPage.jsx'));
+const AdminAssignmentDetailsPage = lazy(() => import('./pages/admin/AssignmentDetailsPage.jsx'));
 
 const MentorLayout = lazy(() => import('./layouts/MentorLayout.jsx'));
 const MentorDashboard = lazy(() => import('./pages/mentor/MentorDashboard.jsx'));
@@ -67,6 +69,8 @@ function App() {
                 <Route path="/admin/groups/:id" element={<AdminGroupDetailsPage />} />
                 <Route path="/admin/courses" element={<AdminCoursesPage />} />
                 <Route path="/admin/courses/:id" element={<AdminCourseDetailsPage />} />
+                <Route path="/admin/assignments" element={<AdminAssignmentsPage />} />
+                <Route path="/admin/assignments/:id" element={<AdminAssignmentDetailsPage />} />
               </Route>
             </Route>
 

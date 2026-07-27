@@ -11,15 +11,18 @@ export default function FormModal({
   isOpen,
   onClose,
   title,
+  subtitle,
+  icon,
   onSubmit,
   isSubmitting = false,
   submitLabel = 'Saqlash',
+  submitIcon: SubmitIcon,
   submittingLabel = 'Saqlanmoqda...',
   cancelLabel = 'Bekor qilish',
   children,
 }) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={title}>
+    <Modal isOpen={isOpen} onClose={onClose} title={title} subtitle={subtitle} icon={icon}>
       <form onSubmit={onSubmit} noValidate className="flex flex-col gap-5">
         <div className="grid max-h-[60vh] grid-cols-1 gap-4 overflow-y-auto px-1 py-1 sm:grid-cols-2">{children}</div>
 
@@ -28,6 +31,7 @@ export default function FormModal({
             {cancelLabel}
           </Button>
           <LoadingButton type="submit" variant="primary" isLoading={isSubmitting} loadingText={submittingLabel}>
+            {SubmitIcon && <SubmitIcon size={16} aria-hidden="true" />}
             {submitLabel}
           </LoadingButton>
         </div>

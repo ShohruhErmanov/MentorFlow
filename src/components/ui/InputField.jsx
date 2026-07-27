@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff, AlertCircle } from 'lucide-react'
+import ValidationMessage from './ValidationMessage'
 
 /**
  * Reusable accessible input field with label, icon, error state, and password toggle.
@@ -117,22 +118,7 @@ const InputField = forwardRef(function InputField(
         </div>
       </div>
 
-      {/* Error message */}
-      {hasError && (
-        <motion.p
-          id={`${id}-error`}
-          role="alert"
-          aria-live="polite"
-          className="flex items-center gap-1.5 text-xs font-medium text-red-500"
-          initial={{ opacity: 0, y: -4 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
-          transition={{ duration: 0.2 }}
-        >
-          <AlertCircle size={12} aria-hidden="true" />
-          {error}
-        </motion.p>
-      )}
+      <ValidationMessage id={`${id}-error`} message={error} />
     </motion.div>
   )
 })

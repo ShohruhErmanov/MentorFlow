@@ -7,7 +7,7 @@ import clsx from 'clsx';
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export default function Modal({ isOpen, onClose, title, children, className }) {
+export default function Modal({ isOpen, onClose, title, subtitle, icon: Icon, children, className }) {
   const panelRef = useRef(null);
 
   // Prevent body scroll when modal is open
@@ -90,8 +90,20 @@ export default function Modal({ isOpen, onClose, title, children, className }) {
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e1e2ed] dark:border-slate-700">
-              <h2 id="modal-title" className="text-xl font-bold text-[#191b23] dark:text-white">{title}</h2>
+            <div className="flex items-start justify-between pb-4 mb-4 border-b border-[#e1e2ed] dark:border-slate-700">
+              <div className="flex items-start gap-3">
+                {Icon && (
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#dbe1ff] text-[#2563eb] dark:bg-blue-500/10 dark:text-blue-400">
+                    <Icon size={20} aria-hidden="true" />
+                  </div>
+                )}
+                <div>
+                  <h2 id="modal-title" className="text-xl font-bold text-[#191b23] dark:text-white">{title}</h2>
+                  {subtitle && (
+                    <p className="mt-0.5 text-sm font-medium text-[#737686] dark:text-slate-400">{subtitle}</p>
+                  )}
+                </div>
+              </div>
               <button
                 onClick={onClose}
                 className="rounded-lg p-2 text-[#737686] transition-colors hover:bg-[#f3f3fe] hover:text-[#191b23] dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"

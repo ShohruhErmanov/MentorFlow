@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import clsx from 'clsx';
+import ValidationMessage from './ValidationMessage';
 
 const DatePicker = forwardRef(function DatePicker({ label, error, className, disabled, ...props }, ref) {
   const hasError = Boolean(error);
@@ -23,7 +24,7 @@ const DatePicker = forwardRef(function DatePicker({ label, error, className, dis
         )}
         {...props}
       />
-      {hasError && <p className="text-xs font-medium text-red-500 dark:text-red-400">{error}</p>}
+      <ValidationMessage message={error} />
     </div>
   );
 });

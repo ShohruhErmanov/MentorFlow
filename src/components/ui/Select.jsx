@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
+import ValidationMessage from './ValidationMessage';
 
 const Select = forwardRef(function Select(
   { label, error, options = [], className, disabled, ...props },
@@ -40,9 +41,7 @@ const Select = forwardRef(function Select(
           <ChevronDown size={16} strokeWidth={2} />
         </div>
       </div>
-      {hasError && (
-        <p className="text-xs font-medium text-red-500 dark:text-red-400">{error}</p>
-      )}
+      <ValidationMessage message={error} />
     </div>
   );
 });
